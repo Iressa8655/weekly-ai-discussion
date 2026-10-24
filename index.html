@@ -70,7 +70,15 @@ nav.tabs a[aria-current="page"] { border-bottom-color: #002147; font-weight: 500
 .stack { padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
 .hero { position: relative; background: #e9edf2; }
 .hero .frame { max-width: 1200px; margin: 0 auto; }
-.hero img { display: block; width: 100%; max-height: 560px; object-fit: contain; background: #ffffff; }
+.hero .slides { position: relative; height: clamp(260px, 46vw, 560px); background: #ffffff; overflow: hidden; }
+.hero .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .6s ease; }
+.hero .slide.on { opacity: 1; }
+.hero .slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.hero .ft { align-items: center; }
+.hero .dots { margin-left: auto; display: flex; gap: 10px; }
+.hero .dots button { width: 12px; height: 12px; border-radius: 50%; border: 2px solid #ffffff; background: transparent; padding: 0; cursor: pointer; }
+.hero .dots button[aria-current="true"] { background: #ffffff; }
+@media (prefers-reduced-motion: reduce) { .hero .slide { transition: none; } }
 .hero .box { position: absolute; right: max(16px, calc((100% - 1200px) / 2 + 24px)); bottom: -48px; width: min(620px, 60%); background: rgba(0, 33, 71, .93); color: #ffffff; padding: 22px 26px 18px; display: flex; flex-direction: column; gap: 12px; }
 .hero.noimg { background: var(--navy); }
 .hero.noimg .box { position: static; width: auto; max-width: 1200px; margin: 0 auto; background: transparent; padding-block: 48px 40px; }
@@ -438,15 +446,15 @@ function week(w) {
       <h1>${esc(x.title)}</h1>
       <span class="kicker">${esc(x.cite)}</span>
       <hr>
-      <div class="ft"><a href="${esc(full)}" target="_blank" rel="noopener">Full text →</a>${x.alt ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">Publisher page →</a>` : ""}</div>
+      <div class="ft"><a href="${esc(full)}" target="_blank" rel="noopener">Full text →</a>${x.alt ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">Publisher page →</a>` : ""}${figs.length > 1 ? `<div class="dots" role="group" aria-label="Choose image">${figs.map((f, i) => `<button type="button" aria-label="Show image ${i + 1} of ${figs.length}" aria-current="${i === 0}" data-i="${i}"></button>`).join("")}</div>` : ""}</div>
     </div>`;
   const heroHtml = hero
-    ? `<section class="hero"><div class="frame"><img src="${esc(hero.src)}" alt="${esc(hero.alt || "")}"></div>${box}</section>`
+    ? `<section class="hero" aria-roledescription="carousel" aria-label="Figures from this paper"><div class="frame"><div class="slides">${figs.map((f, i) => `<figure class="slide${i === 0 ? " on" : ""}" aria-hidden="${i === 0 ? "false" : "true"}"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}"></figure>`).join("")}</div></div>${box}</section>`
     : `<section class="hero noimg">${box}</section>`;
-  const more = figs.slice(1).map(f => `<figure class="fig"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}" loading="lazy"><figcaption>${esc(f.caption || "")} <span class="credit">${esc(f.credit || "")}</span></figcaption></figure>`).join("");
+  const more = "";
   return `${heroHtml}
   <section class="band"><span class="lbl">Why we read it</span><p>${esc(x.why)}</p></section>
-  ${hero ? `<p class="credit-line">Image: ${esc(hero.caption || "")} ${esc(hero.credit || "")}</p>` : ""}
+  ${hero ? `<p class="credit-line">Images: ${figs.map(f => `${esc(f.caption || "")} ${esc(f.credit || "")}`).join(" · ")}</p>` : ""}
   <div class="wrap stack">
   <nav class="weeknav" aria-label="Weeks">${WEEKS.map(k => `<a href="#w${k.w}" ${k.w === w ? 'aria-current="page"' : ""}>W${k.w}</a>`).join("")}</nav>
   ${more}
@@ -454,6 +462,32 @@ function week(w) {
   <section><h2>Discussion questions</h2>${qs}</section>
   <section><h2>Answers</h2>${answers}</section>
   </div>`;
+}
+
+let carouselTimer = null;
+function startCarousel() {
+  clearInterval(carouselTimer);
+  const hero = document.querySelector(".hero");
+  if (!hero || !hero.querySelector(".slides")) return;
+  const slides = [...hero.querySelectorAll(".slide")];
+  const dots = [...hero.querySelectorAll(".dots button")];
+  if (slides.length < 2) return;
+  let i = 0;
+  const show = n => {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, k) => { s.classList.toggle("on", k === i); s.setAttribute("aria-hidden", String(k !== i)); });
+    dots.forEach((d, k) => d.setAttribute("aria-current", String(k === i)));
+  };
+  const auto = () => {
+    clearInterval(carouselTimer);
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      carouselTimer = setInterval(() => show(i + 1), 6000);
+    }
+  };
+  dots.forEach(d => d.addEventListener("click", () => { show(+d.dataset.i); auto(); }));
+  hero.addEventListener("mouseenter", () => clearInterval(carouselTimer));
+  hero.addEventListener("mouseleave", auto);
+  auto();
 }
 
 function render() {
@@ -464,6 +498,7 @@ function render() {
   else if (FOCUS[h]) { tab = h; html = `<div class="wrap stack">${focus(h)}</div>`; }
   else html = `<div class="wrap stack">${home()}</div>`;
   document.getElementById("view").innerHTML = html;
+  startCarousel();
   document.querySelectorAll("nav.tabs a").forEach(a => {
     if (a.dataset.tab === tab) {
       a.setAttribute("aria-current", "page");

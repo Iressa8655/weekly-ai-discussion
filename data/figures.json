@@ -6,6 +6,13 @@
       "caption": "The 18 categories of barriers and facilitators identified in the review.",
       "credit": "Hassan M, Kushniruk A, Borycki E. JMIR Hum Factors 2024;11:e48633, CC BY 4.0.",
       "link": "https://doi.org/10.2196/48633"
+    },
+    {
+      "src": "assets/figures/w1-hassan-2024-journal-page.jpg",
+      "alt": "Journal page of the paper on JMIR Human Factors, showing title and authors",
+      "caption": "The paper on JMIR Human Factors.",
+      "credit": "Screenshot of humanfactors.jmir.org.",
+      "link": "https://humanfactors.jmir.org/2024/1/e48633"
     }
   ],
   "w2": [
@@ -15,6 +22,13 @@
       "caption": "Sepsis Watch workflow. Each lane is one role, from the rapid response nurse's first check to the inpatient nurse finishing the bundle.",
       "credit": "Sendak MP et al. JMIR Med Inform 2020;8(7):e15182, Figure 1, CC BY 4.0.",
       "link": "https://doi.org/10.2196/15182"
+    },
+    {
+      "src": "assets/figures/w2-sendak-2020-journal-page.jpg",
+      "alt": "Journal page of the paper on JMIR Medical Informatics, showing title and authors",
+      "caption": "The paper on JMIR Medical Informatics.",
+      "credit": "Screenshot of medinform.jmir.org.",
+      "link": "https://medinform.jmir.org/2020/7/e15182"
     }
   ]
 }
