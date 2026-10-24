@@ -2,7 +2,7 @@
 
 A weekly AI discussion, run as a three-month journal club on AI adoption in healthcare.
 
-**Site:** https://iressa8655.github.io/phi-lab-ai-journal-club/
+**Site:** https://iressa8655.github.io/weekly-ai-discussion/
 
 ## Three focuses
 
