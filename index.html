@@ -87,6 +87,12 @@ tr.sub td { background: var(--bg); font-size: .75rem; letter-spacing: .06em; tex
 .paper .cite { font-size: .88rem; color: var(--muted); }
 ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 8px; max-width: 68ch; }
 .qgroup { font-weight: 600; font-size: .85rem; color: var(--muted); margin-top: 6px; }
+.sess { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.sess > div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.sess .when { font-family: var(--mono); font-size: .78rem; color: var(--accent); }
+.sess p { font-size: .88rem; color: var(--muted); }
+.sess .go { font-weight: 600; }
+.sess .soon { font-size: .85rem; color: var(--muted); font-style: italic; }
 .answers { border: 1px dashed var(--lock); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .answers.open { border-style: solid; border-color: var(--accent); }
 .answers .state { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--lock); }
@@ -278,6 +284,7 @@ const HEAT = {
 
 let liveQs = {};
 let liveAns = {};
+let liveLinks = {};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function home() {
@@ -345,6 +352,17 @@ function focus(key) {
   <p class="note">Figures ending in /mo are citations per month since publication, used where papers are too new for a stable RCR.</p>`;
 }
 
+function sessionLinks(w) {
+  const L = liveLinks[w] || {};
+  const safe = u => typeof u === "string" && /^https:\/\//.test(u) ? u : "";
+  const card = (when, title, desc, url, label) => `<div><span class="when">${when}</span><h3>${title}</h3><p>${desc}</p>${safe(url) ? `<a class="go" href="${esc(safe(url))}" target="_blank" rel="noopener">${label} →</a>` : `<span class="soon">Link coming soon</span>`}</div>`;
+  return `<section><h2>This session</h2><div class="sess">
+    ${card("Before", "Pre-session check-in", "Tells us what you already know and think about this week's topic, so we can pitch the discussion. It also works as the sign-in sheet.", L.pre, "Open the check-in")}
+    ${card("During", "Shared discussion notes", "One document for the whole group. Open it during the session and add your points as we talk.", L.notes, "Open the notes")}
+    ${card("After", "Session review", "Rate the session and leave any feedback, so we keep a record and improve the next one.", L.post, "Open the review")}
+  </div></section>`;
+}
+
 function week(w) {
   const x = WEEKS.find(k => k.w === w);
   const groups = liveQs[w] && liveQs[w].length ? liveQs[w] : STATIC_QS[w];
@@ -363,6 +381,7 @@ function week(w) {
     <span class="cite">${esc(x.cite)}</span>
     <div><a href="${x.url}" target="_blank" rel="noopener">Open the paper</a>${x.alt ? ` · <a href="${x.alt}" target="_blank" rel="noopener">Free full text</a>` : ""}</div>
   </div>
+  ${sessionLinks(w)}
   <section><h2>Why we read it</h2><p>${esc(x.why)}</p></section>
   <section><h2>Discussion questions</h2>${qs}</section>
   <section><h2>Answers</h2>${answers}</section>`;
@@ -389,7 +408,8 @@ render();
 
 (async () => {
   const load = async f => { try { const r = await fetch(f, { cache: "no-cache" }); return r.ok ? await r.json() : {}; } catch { return {}; } };
-  const [q, a] = await Promise.all([load("data/questions.json"), load("data/answers.json")]);
+  const [q, a, l] = await Promise.all([load("data/questions.json"), load("data/answers.json"), load("data/links.json")]);
+  for (const [k, v] of Object.entries(l)) { const n = +k.replace(/^w/, ""); if (n && v && typeof v === "object") liveLinks[n] = v; }
   for (const [k, v] of Object.entries(q)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveQs[n] = v.map(g => [g.label || "", Array.isArray(g.items) ? g.items : []]); }
   for (const [k, v] of Object.entries(a)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v) && v.length) liveAns[n] = v.map(String); }
   render();

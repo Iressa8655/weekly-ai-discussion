@@ -14,6 +14,7 @@ A weekly AI discussion, run as a three-month journal club on AI adoption in heal
 
 - Discussion questions for a week go in `data/questions.json`, keyed `w1` to `w12`.
 - Answers are released after each session in `data/answers.json`, keyed the same way.
+- Each week's pre-session check-in, shared notes and session review links go in `data/links.json`, as `{"w1": {"pre": "https://...", "notes": "https://...", "post": "https://..."}}`.
 - Paper links point to PubMed or the publisher. No PDFs are hosted here.
 
 Papers are ranked by Relative Citation Ratio from [NIH iCite](https://icite.od.nih.gov/).
