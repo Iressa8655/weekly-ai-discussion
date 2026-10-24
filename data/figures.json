@@ -30,5 +30,53 @@
       "credit": "Screenshot of medinform.jmir.org.",
       "link": "https://medinform.jmir.org/2020/7/e15182"
     }
+  ],
+  "w3": [
+    {
+      "src": "assets/figures/w3-bmj-2005-table6.png",
+      "alt": "Table of four decision support features linked to improved practice, with adjusted odds ratios",
+      "caption": "Table 6, the four features linked to better practice, led by automatic decision support inside the clinician's workflow.",
+      "credit": "BMJ 2005, Table 6. Reproduced for teaching discussion.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/15767266/"
+    },
+    {
+      "src": "assets/figures/w3-bmj-2005-journal-page.png",
+      "alt": "First page of the BMJ paper showing the title",
+      "caption": "The paper in BMJ.",
+      "credit": "First page of the BMJ article.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/15767266/"
+    }
+  ],
+  "w10": [
+    {
+      "src": "assets/figures/w10-kuo-2022-pooled-accuracy.jpg",
+      "alt": "Forest plot of pooled sensitivity, specificity and AUC for algorithms and clinicians, internal and external validation",
+      "caption": "Figure 6, pooled sensitivity, specificity and AUC for algorithms and clinicians, all studies against low-bias studies.",
+      "credit": "Kuo RYL et al. Radiology 2022;304:50\u201362, Figure 6. Reproduced for teaching discussion.",
+      "link": "https://doi.org/10.1148/radiol.211785"
+    },
+    {
+      "src": "assets/figures/w10-kuo-2022-journal-page.png",
+      "alt": "First page of the Radiology paper showing title and authors",
+      "caption": "The paper in Radiology, written at NDORMS and the Botnar Research Centre.",
+      "credit": "First page of the Radiology article.",
+      "link": "https://doi.org/10.1148/radiol.211785"
+    }
+  ],
+  "w11": [
+    {
+      "src": "assets/figures/w11-lindsey-2018-heatmaps.jpg",
+      "alt": "Wrist radiographs beside the model's output with a heat map over the fracture",
+      "caption": "Figure 1, original radiographs and the model's output, with the predicted fracture highlighted.",
+      "credit": "Lindsey R et al. Proc Natl Acad Sci U S A 2018, Figure 1. Reproduced for teaching discussion.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30348771/"
+    },
+    {
+      "src": "assets/figures/w11-lindsey-2018-journal-page.png",
+      "alt": "First page of the PNAS paper showing title and authors",
+      "caption": "The paper in PNAS.",
+      "credit": "First page of the PNAS article.",
+      "link": "https://pubmed.ncbi.nlm.nih.gov/30348771/"
+    }
   ]
 }
