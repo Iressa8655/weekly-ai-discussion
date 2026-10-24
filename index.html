@@ -8,50 +8,87 @@
 <meta property="og:title" content="Weekly AI Discussion">
 <meta property="og:description" content="A three-month journal club on AI adoption in healthcare and musculoskeletal care.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: a reading-room index. Narrow column, sticky tab bar, one view per hash. */
+/* Layout: department-site pattern. White logo header, uppercase nav, full-width hero with a navy caption box, navy statement band, then a narrow reading column. */
 :root {
   --bg: #f6f7f8;
   --surface: #ffffff;
   --fg: #1b2328;
   --muted: #5b6870;
   --line: #d9dee2;
-  --accent: #1d5f6b;
-  --accent-soft: #e2eef0;
+  --accent: #002147;
+  --accent-soft: #e3e9f2;
+  --link: #c25b00;
+  --navy: #002147;
   --star: #9a6a00;
   --lock: #7a4b52;
-  --display: "Newsreader", Georgia, "Times New Roman", serif;
-  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --body: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #12171a; --surface: #192024; --fg: #e4e9ec; --muted: #9aa8b0;
-    --line: #2c363c; --accent: #7cc3cf; --accent-soft: #1f3338; --star: #e0b552; --lock: #d79aa3;
+    --line: #2c363c; --accent: #9db9e3; --accent-soft: #1c2a3d; --link: #f0a061; --star: #e0b552; --lock: #d79aa3;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #12171a; --surface: #192024; --fg: #e4e9ec; --muted: #9aa8b0;
-  --line: #2c363c; --accent: #7cc3cf; --accent-soft: #1f3338; --star: #e0b552; --lock: #d79aa3;
+  --line: #2c363c; --accent: #9db9e3; --accent-soft: #1c2a3d; --link: #f0a061; --star: #e0b552; --lock: #d79aa3;
   color-scheme: dark;
 }
 body { background: var(--bg); color: var(--fg); font: 15px/1.6 var(--body); }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
 a { color: var(--accent); }
+main a { color: var(--link); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
-header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
-header.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding-block: 12px; }
-.logos { display: flex; align-items: center; gap: 10px; background: #ffffff; border-radius: 6px; padding: 4px 8px; }
-.logos img { height: 40px; width: auto; display: block; }
-@media (max-width: 480px) { .logos img { height: 30px; } }
-.brand { font-family: var(--display); font-size: 1.15rem; font-weight: 600; margin: 0; }
-nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
-nav.tabs a { text-decoration: none; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-weight: 500; font-size: .92rem; }
-nav.tabs a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
-main .wrap { padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+header.site { background: #ffffff; color: #1b2328; border-bottom: 1px solid #d9dee2; }
+.hwrap { max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.hrow { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding-block: 18px 6px; }
+.logos { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; min-width: 0; }
+.logos img { height: 64px; width: auto; display: block; }
+.hright { display: flex; align-items: flex-start; gap: 24px; }
+.util { display: flex; flex-wrap: wrap; gap: 6px 22px; padding-top: 6px; }
+.util a { color: #c25b00; text-decoration: none; font-size: 1.05rem; }
+.util a:hover { text-decoration: underline; }
+.oxf img { height: 104px; width: auto; display: block; }
+.brand { margin: 0; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: #5b6870; font-weight: 500; }
+nav.tabs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 30px; padding-block: 14px 12px; }
+nav.tabs a { text-decoration: none; color: #1b2328; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .02em; padding-bottom: 3px; border-bottom: 2px solid transparent; }
+nav.tabs a:hover { border-bottom-color: #c25b00; }
+nav.tabs a[aria-current="page"] { border-bottom-color: #002147; font-weight: 500; }
+@media (max-width: 760px) {
+  .logos img { height: 40px; }
+  .oxf img { height: 60px; }
+  .util { display: none; }
+  nav.tabs { gap: 4px 18px; }
+  nav.tabs a { font-size: .9rem; }
+}
+.stack { padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+.hero { position: relative; background: #e9edf2; }
+.hero .frame { max-width: 1200px; margin: 0 auto; }
+.hero img { display: block; width: 100%; max-height: 560px; object-fit: contain; background: #ffffff; }
+.hero .box { position: absolute; right: max(16px, calc((100% - 1200px) / 2 + 24px)); bottom: -48px; width: min(620px, 60%); background: rgba(0, 33, 71, .93); color: #ffffff; padding: 22px 26px 18px; display: flex; flex-direction: column; gap: 12px; }
+.hero.noimg { background: var(--navy); }
+.hero.noimg .box { position: static; width: auto; max-width: 1200px; margin: 0 auto; background: transparent; padding-block: 48px 40px; }
+.hero .kicker { font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: #c9d4e3; }
+.hero h1 { color: #ffffff; font-weight: 400; font-size: clamp(1.4rem, 2.8vw, 2.3rem); line-height: 1.25; }
+.hero hr { border: 0; border-top: 1px solid rgba(255, 255, 255, .55); margin: 4px 0 0; width: 100%; }
+.hero .ft { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.hero .ft a { color: #ffffff; text-decoration: none; font-size: 1.15rem; padding: 4px 0; }
+.hero .ft a:hover { text-decoration: underline; }
+.credit-line { max-width: 860px; margin: 0 auto; font-size: .78rem; color: var(--muted); padding: 10px 16px 0; }
+.band { background: var(--navy); color: #ffffff; text-align: center; padding: 84px max(16px, env(safe-area-inset-right, 0px)) 44px max(16px, env(safe-area-inset-left, 0px)); }
+.hero.noimg + .band { padding-top: 8px; }
+.band .lbl { display: block; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: #c9d4e3; margin-bottom: 12px; }
+.band p { margin: 0 auto; max-width: 60ch; font-size: clamp(1.05rem, 2vw, 1.5rem); font-weight: 300; line-height: 1.5; }
+@media (max-width: 760px) {
+  .hero .box { position: static; width: auto; }
+  .band { padding-top: 32px; }
+}
 h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; line-height: 1.2; margin: 0; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.4rem; }
@@ -116,20 +153,34 @@ ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; g
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <div class="logos"><img src="assets/ndorms-logo.png" alt="NDORMS, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences" height="40"><img src="assets/botnar-logo.png" alt="Botnar Research Centre, NDORMS" height="40"></div>
+<header class="site">
+  <div class="hwrap">
+    <div class="hrow">
+      <div class="logos">
+        <img src="assets/ndorms-logo.png" alt="NDORMS, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences">
+        <img src="assets/botnar-logo.png" alt="Botnar Research Centre, NDORMS">
+      </div>
+      <div class="hright">
+        <nav class="util" aria-label="Quick links">
+          <a href="#home">Programme</a>
+          <a href="https://drive.google.com/drive/folders/1W2BNJX3YikX1ddGXNdLDmO-3Bg0uuaEd" target="_blank" rel="noopener">Shared notes</a>
+          <a href="https://github.com/Iressa8655/weekly-ai-discussion" target="_blank" rel="noopener">Source</a>
+        </nav>
+        <a class="oxf" href="https://www.ox.ac.uk/" target="_blank" rel="noopener"><img src="assets/oxford-logo.png" alt="University of Oxford"></a>
+      </div>
+    </div>
     <p class="brand">Weekly AI Discussion</p>
     <nav class="tabs" aria-label="Sections">
       <a href="#home" data-tab="home">Home</a>
-      <a href="#adoption" data-tab="adoption">① Adoption</a>
-      <a href="#models" data-tab="models">② Model types</a>
-      <a href="#msk" data-tab="msk">③ MSK</a>
+      <a href="#adoption" data-tab="adoption">Adoption</a>
+      <a href="#models" data-tab="models">Model types</a>
+      <a href="#msk" data-tab="msk">MSK</a>
       <a href="#w1" data-tab="week">Weeks</a>
     </nav>
   </div>
 </header>
-<main><div class="wrap" id="view"></div></main>
+<main id="view"></main>
+<footer class="wrap note" style="padding-block:24px 40px">A journal club run by members of the Botnar Research Centre, NDORMS. Not an official University of Oxford publication.</footer>
 
 <script>
 const PM = id => `https://pubmed.ncbi.nlm.nih.gov/${id}/`;
@@ -379,18 +430,30 @@ function week(w) {
   const answers = ans && ans.length
     ? `<div class="answers open"><span class="state">Answers · released after the session</span>${ans.map(a => `<p>${esc(a)}</p>`).join("")}</div>`
     : `<div class="answers"><span class="state">Answers locked</span><p class="note">These appear here after we have discussed the paper.</p></div>`;
-  return `
+  const figs = (liveFigs[w] || []).filter(f => /^assets\/figures\/[\w.-]+$/.test(f.src || ""));
+  const hero = figs[0];
+  const full = x.alt || x.url;
+  const box = `<div class="box">
+      <span class="kicker">Week ${w} · Month ${x.month} · ${esc(x.type)}</span>
+      <h1>${esc(x.title)}</h1>
+      <span class="kicker">${esc(x.cite)}</span>
+      <hr>
+      <div class="ft"><a href="${esc(full)}" target="_blank" rel="noopener">Full text →</a>${x.alt ? `<a href="${esc(x.url)}" target="_blank" rel="noopener">Publisher page →</a>` : ""}</div>
+    </div>`;
+  const heroHtml = hero
+    ? `<section class="hero"><div class="frame"><img src="${esc(hero.src)}" alt="${esc(hero.alt || "")}"></div>${box}</section>`
+    : `<section class="hero noimg">${box}</section>`;
+  const more = figs.slice(1).map(f => `<figure class="fig"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}" loading="lazy"><figcaption>${esc(f.caption || "")} <span class="credit">${esc(f.credit || "")}</span></figcaption></figure>`).join("");
+  return `${heroHtml}
+  <section class="band"><span class="lbl">Why we read it</span><p>${esc(x.why)}</p></section>
+  ${hero ? `<p class="credit-line">Image: ${esc(hero.caption || "")} ${esc(hero.credit || "")}</p>` : ""}
+  <div class="wrap stack">
   <nav class="weeknav" aria-label="Weeks">${WEEKS.map(k => `<a href="#w${k.w}" ${k.w === w ? 'aria-current="page"' : ""}>W${k.w}</a>`).join("")}</nav>
-  <section><span class="eyebrow">Week ${w} · Month ${x.month} · ${esc(x.type)}</span><h1>${esc(x.title)}</h1></section>
-  <div class="paper">
-    <span class="cite">${esc(x.cite)}</span>
-    <div><a href="${x.url}" target="_blank" rel="noopener">Open the paper</a>${x.alt ? ` · <a href="${x.alt}" target="_blank" rel="noopener">Free full text</a>` : ""}</div>
-    ${(liveFigs[w] || []).filter(f => /^assets\/figures\/[\w.-]+$/.test(f.src || "")).map(f => `<figure class="fig"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}" loading="lazy"><figcaption>${esc(f.caption || "")} <span class="credit">${esc(f.credit || "")}</span></figcaption></figure>`).join("")}
-  </div>
+  ${more}
   ${sessionLinks(w)}
-  <section><h2>Why we read it</h2><p>${esc(x.why)}</p></section>
   <section><h2>Discussion questions</h2>${qs}</section>
-  <section><h2>Answers</h2>${answers}</section>`;
+  <section><h2>Answers</h2>${answers}</section>
+  </div>`;
 }
 
 function render() {
@@ -398,8 +461,8 @@ function render() {
   let tab = "home", html;
   const m = h.match(/^w(\d{1,2})$/);
   if (m && WEEKS.some(k => k.w === +m[1])) { tab = "week"; html = week(+m[1]); }
-  else if (FOCUS[h]) { tab = h; html = focus(h); }
-  else html = home();
+  else if (FOCUS[h]) { tab = h; html = `<div class="wrap stack">${focus(h)}</div>`; }
+  else html = `<div class="wrap stack">${home()}</div>`;
   document.getElementById("view").innerHTML = html;
   document.querySelectorAll("nav.tabs a").forEach(a => {
     if (a.dataset.tab === tab) {
