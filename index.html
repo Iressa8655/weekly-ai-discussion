@@ -93,6 +93,10 @@ ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; g
 .sess p { font-size: .88rem; color: var(--muted); }
 .sess .go { font-weight: 600; }
 .sess .soon { font-size: .85rem; color: var(--muted); font-style: italic; }
+.fig { margin: 8px 0 0; display: flex; flex-direction: column; gap: 6px; }
+.fig img { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #ffffff; }
+.fig figcaption { font-size: .85rem; color: var(--muted); max-width: 68ch; }
+.fig .credit { display: block; font-size: .78rem; }
 .answers { border: 1px dashed var(--lock); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .answers.open { border-style: solid; border-color: var(--accent); }
 .answers .state { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--lock); }
@@ -285,6 +289,7 @@ const HEAT = {
 let liveQs = {};
 let liveAns = {};
 let liveLinks = {};
+let liveFigs = {};
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 function home() {
@@ -380,6 +385,7 @@ function week(w) {
   <div class="paper">
     <span class="cite">${esc(x.cite)}</span>
     <div><a href="${x.url}" target="_blank" rel="noopener">Open the paper</a>${x.alt ? ` · <a href="${x.alt}" target="_blank" rel="noopener">Free full text</a>` : ""}</div>
+    ${(liveFigs[w] || []).filter(f => /^assets\/figures\/[\w.-]+$/.test(f.src || "")).map(f => `<figure class="fig"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}" loading="lazy"><figcaption>${esc(f.caption || "")} <span class="credit">${esc(f.credit || "")}</span></figcaption></figure>`).join("")}
   </div>
   ${sessionLinks(w)}
   <section><h2>Why we read it</h2><p>${esc(x.why)}</p></section>
@@ -409,6 +415,8 @@ render();
 (async () => {
   const load = async f => { try { const r = await fetch(f, { cache: "no-cache" }); return r.ok ? await r.json() : {}; } catch { return {}; } };
   const [q, a, l] = await Promise.all([load("data/questions.json"), load("data/answers.json"), load("data/links.json")]);
+  const figs = await load("data/figures.json");
+  for (const [k, v] of Object.entries(figs)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveFigs[n] = v; }
   for (const [k, v] of Object.entries(l)) { const n = +k.replace(/^w/, ""); if (n && v && typeof v === "object") liveLinks[n] = v; }
   for (const [k, v] of Object.entries(q)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveQs[n] = v.map(g => [g.label || "", Array.isArray(g.items) ? g.items : []]); }
   for (const [k, v] of Object.entries(a)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v) && v.length) liveAns[n] = v.map(String); }

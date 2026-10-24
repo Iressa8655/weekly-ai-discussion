@@ -1,0 +1,20 @@
+{
+  "w1": [
+    {
+      "src": "assets/figures/w1-hassan-2024-categories.png",
+      "alt": "Eighteen categories of barriers to and facilitators of AI adoption, from transparency and explainability to funding and cost",
+      "caption": "The 18 categories of barriers and facilitators identified in the review.",
+      "credit": "Hassan M, Kushniruk A, Borycki E. JMIR Hum Factors 2024;11:e48633, CC BY 4.0.",
+      "link": "https://doi.org/10.2196/48633"
+    }
+  ],
+  "w2": [
+    {
+      "src": "assets/figures/w2-sendak-2020-workflow.jpg",
+      "alt": "Swimlane diagram of the Sepsis Watch workflow across the rapid response nurse, emergency department physician, emergency department nurse and inpatient nurse",
+      "caption": "Sepsis Watch workflow. Each lane is one role, from the rapid response nurse's first check to the inpatient nurse finishing the bundle.",
+      "credit": "Sendak MP et al. JMIR Med Inform 2020;8(7):e15182, Figure 1, CC BY 4.0.",
+      "link": "https://doi.org/10.2196/15182"
+    }
+  ]
+}
