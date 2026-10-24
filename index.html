@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>PHI Lab Weekly AI Discussion</title>
-<meta name="description" content="The PHI Lab's weekly AI discussion, a three-month journal club on AI adoption in healthcare, model types across specialties, and AI in musculoskeletal care. Reading lists, weekly papers, discussion questions and answers.">
-<meta property="og:title" content="PHI Lab Weekly AI Discussion">
+<title>Weekly AI Discussion</title>
+<meta name="description" content="A weekly AI discussion at the Botnar Research Centre, NDORMS, run as a three-month journal club on AI adoption in healthcare, model types across specialties, and AI in musculoskeletal care. Reading lists, weekly papers, discussion questions and answers.">
+<meta property="og:title" content="Weekly AI Discussion">
 <meta property="og:description" content="A three-month journal club on AI adoption in healthcare and musculoskeletal care.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -44,6 +44,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
 header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
 header.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding-block: 12px; }
+.logos { display: flex; align-items: center; gap: 10px; background: #ffffff; border-radius: 6px; padding: 4px 8px; }
+.logos img { height: 40px; width: auto; display: block; }
+@media (max-width: 480px) { .logos img { height: 30px; } }
 .brand { font-family: var(--display); font-size: 1.15rem; font-weight: 600; margin: 0; }
 nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
 nav.tabs a { text-decoration: none; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-weight: 500; font-size: .92rem; }
@@ -105,7 +108,8 @@ ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; g
 
 <header class="top">
   <div class="wrap">
-    <p class="brand">PHI Lab · Weekly AI Discussion</p>
+    <div class="logos"><img src="assets/ndorms-logo.png" alt="NDORMS, Nuffield Department of Orthopaedics, Rheumatology and Musculoskeletal Sciences" height="40"><img src="assets/botnar-logo.png" alt="Botnar Research Centre, NDORMS" height="40"></div>
+    <p class="brand">Weekly AI Discussion</p>
     <nav class="tabs" aria-label="Sections">
       <a href="#home" data-tab="home">Home</a>
       <a href="#adoption" data-tab="adoption">① Adoption</a>
@@ -284,9 +288,9 @@ function home() {
   ];
   return `
   <section>
-    <span class="eyebrow">PHI Lab · weekly AI discussion · three months, twelve sessions</span>
+    <span class="eyebrow">Weekly AI discussion · three months, twelve sessions</span>
     <h1>AI adoption in healthcare</h1>
-    <p class="lede">This is the weekly AI discussion of the PHI Lab, run as a journal club. AI tools are being built faster than hospitals can adopt them. This journal club asks why, and what that means for musculoskeletal care.</p>
+    <p class="lede">This is a weekly AI discussion, run as a journal club. AI tools are being built faster than hospitals can adopt them. This journal club asks why, and what that means for musculoskeletal care.</p>
   </section>
   <section>
     <h2>Three focuses</h2>

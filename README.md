@@ -1,6 +1,6 @@
-# PHI Lab Weekly AI Discussion
+# Weekly AI Discussion
 
-The weekly AI discussion of the PHI Lab, run as a three-month journal club on AI adoption in healthcare.
+A weekly AI discussion, run as a three-month journal club on AI adoption in healthcare.
 
 **Site:** https://iressa8655.github.io/phi-lab-ai-journal-club/
 
