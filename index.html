@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PHI Lab Weekly AI Discussion</title>
+<meta name="description" content="The PHI Lab's weekly AI discussion, a three-month journal club on AI adoption in healthcare, model types across specialties, and AI in musculoskeletal care. Reading lists, weekly papers, discussion questions and answers.">
+<meta property="og:title" content="PHI Lab Weekly AI Discussion">
+<meta property="og:description" content="A three-month journal club on AI adoption in healthcare and musculoskeletal care.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a reading-room index. Narrow column, sticky tab bar, one view per hash. */
+:root {
+  --bg: #f6f7f8;
+  --surface: #ffffff;
+  --fg: #1b2328;
+  --muted: #5b6870;
+  --line: #d9dee2;
+  --accent: #1d5f6b;
+  --accent-soft: #e2eef0;
+  --star: #9a6a00;
+  --lock: #7a4b52;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #12171a; --surface: #192024; --fg: #e4e9ec; --muted: #9aa8b0;
+    --line: #2c363c; --accent: #7cc3cf; --accent-soft: #1f3338; --star: #e0b552; --lock: #d79aa3;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #12171a; --surface: #192024; --fg: #e4e9ec; --muted: #9aa8b0;
+  --line: #2c363c; --accent: #7cc3cf; --accent-soft: #1f3338; --star: #e0b552; --lock: #d79aa3;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--fg); font: 15px/1.6 var(--body); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 860px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-bottom: 1px solid var(--line); }
+header.top .wrap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding-block: 12px; }
+.brand { font-family: var(--display); font-size: 1.15rem; font-weight: 600; margin: 0; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; }
+nav.tabs a { text-decoration: none; color: var(--muted); padding: 4px 10px; border-radius: 6px; font-weight: 500; font-size: .92rem; }
+nav.tabs a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+main .wrap { padding-block: 28px 64px; display: flex; flex-direction: column; gap: 28px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 600; text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.1rem; }
+p { margin: 0; max-width: 68ch; }
+.lede { font-size: 1.05rem; color: var(--muted); }
+.eyebrow { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+section { display: flex; flex-direction: column; gap: 12px; }
+.focus-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.focus { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 6px; text-decoration: none; color: var(--fg); }
+.focus .month { font-family: var(--mono); font-size: .8rem; color: var(--accent); }
+.focus p { color: var(--muted); font-size: .92rem; }
+.tablebox { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+tr.sub td { background: var(--bg); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.pick { color: var(--star); font-weight: 600; white-space: nowrap; }
+.timeline { display: flex; flex-direction: column; }
+.timeline a { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--fg); }
+.timeline .wk { font-family: var(--mono); color: var(--accent); font-weight: 500; }
+.timeline .ty { font-size: .8rem; color: var(--muted); }
+.timeline .ttl { min-width: 0; }
+.monthhead { padding-top: 14px; }
+.chip { display: inline-block; font-size: .72rem; padding: 1px 8px; border-radius: 99px; border: 1px solid var(--line); color: var(--muted); }
+.chip.ready { border-color: var(--accent); color: var(--accent); }
+.weeknav { display: flex; flex-wrap: wrap; gap: 6px; }
+.weeknav a { font-family: var(--mono); font-size: .85rem; text-decoration: none; padding: 3px 9px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); }
+.weeknav a[aria-current="page"] { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.paper { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.paper .cite { font-size: .88rem; color: var(--muted); }
+ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; gap: 8px; max-width: 68ch; }
+.qgroup { font-weight: 600; font-size: .85rem; color: var(--muted); margin-top: 6px; }
+.answers { border: 1px dashed var(--lock); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.answers.open { border-style: solid; border-color: var(--accent); }
+.answers .state { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--lock); }
+.answers.open .state { color: var(--accent); }
+.heat td.c { text-align: center; font-family: var(--mono); }
+.h4 { background: color-mix(in srgb, var(--accent) 55%, var(--surface)); }
+.h3 { background: color-mix(in srgb, var(--accent) 35%, var(--surface)); }
+.h2 { background: color-mix(in srgb, var(--accent) 18%, var(--surface)); }
+.h1 { background: var(--surface); color: var(--muted); }
+.note { font-size: .85rem; color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; }
+.steps div { border-top: 2px solid var(--accent); padding-top: 6px; font-size: .88rem; }
+.steps b { display: block; font-family: var(--mono); font-weight: 500; color: var(--accent); }
+@media (prefers-reduced-motion: no-preference) { nav.tabs a, .weeknav a { transition: background .15s, color .15s; } }
+</style>
+<style>*,*::before,*::after{box-sizing:border-box}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <p class="brand">PHI Lab · Weekly AI Discussion</p>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#home" data-tab="home">Home</a>
+      <a href="#adoption" data-tab="adoption">① Adoption</a>
+      <a href="#models" data-tab="models">② Model types</a>
+      <a href="#msk" data-tab="msk">③ MSK</a>
+      <a href="#w1" data-tab="week">Weeks</a>
+    </nav>
+  </div>
+</header>
+<main><div class="wrap" id="view"></div></main>
+
+<script>
+const PM = id => `https://pubmed.ncbi.nlm.nih.gov/${id}/`;
+
+const WEEKS = [
+  { w: 1, month: 1, type: "Scoping review", title: "Barriers to and facilitators of AI adoption in health care",
+    cite: "Hassan M, Kushniruk A, Borycki E. JMIR Hum Factors 2024;11:e48633", url: "https://doi.org/10.2196/48633", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11393514/",
+    why: "The newest highly cited review of AI adoption (Relative Citation Ratio 44.1), searched to December 2023. It maps barriers and facilitators together and finds that trust drives adoption, which gives us the vocabulary for the rest of the term." },
+  { w: 2, month: 1, type: "Primary study", title: "Real-world integration of a sepsis deep learning technology into routine clinical care",
+    cite: "Sendak MP et al. JMIR Med Inform 2020;8(7):e15182", url: "https://doi.org/10.2196/15182", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC7391165/",
+    why: "Last week's review said trust is central. This paper shows one hospital building that trust, from problem to go-live, for a deep learning sepsis tool used in a real emergency department." },
+  { w: 3, month: 1, type: "Systematic review of trials", title: "Improving clinical practice using clinical decision support systems, features critical to success",
+    cite: "BMJ 2005", url: PM(15767266),
+    why: "Before 'AI', the same question was asked about decision support. This review asked which features make a system get used, twenty years before today's AI reviews." },
+  { w: 4, month: 1, type: "Qualitative systematic review", title: "Stakeholder perspectives of clinical AI implementation",
+    cite: "J Med Internet Res 2023", url: PM(36626192),
+    why: "Moves from lists of barriers to what clinicians and patients actually say about AI in their own words." },
+  { w: 5, month: 2, type: "Scoping review", title: "Implementation frameworks for AI translation into health care practice",
+    cite: "J Med Internet Res 2022", url: PM(35084349),
+    why: "Shifts the question from what blocks adoption to how to plan it, by mapping the implementation frameworks in use." },
+  { w: 6, month: 2, type: "Systematic review", title: "Large language models in real-world clinical workflows",
+    cite: "Front Digit Health 2025", url: PM(41098649),
+    why: "The fastest-cited recent adoption review. It shows what changed after large language models arrived." },
+  { w: 7, month: 2, type: "Primary study", title: "AI-generated draft replies to patient inbox messages",
+    cite: "JAMA Netw Open 2024", url: PM(38506805),
+    why: "One real deployment of a language model, cited by last week's review, so we can check the review against it." },
+  { w: 8, month: 2, type: "Review", title: "Convolutional neural networks, an overview and application in radiology",
+    cite: "Insights Imaging 2018", url: PM(29934920),
+    why: "The most cited review in our model-type search. It explains why image models suit image-heavy specialties." },
+  { w: 9, month: 3, type: "Review", title: "Artificial intelligence and orthopaedics, an introduction for clinicians",
+    cite: "J Bone Joint Surg Am 2020", url: PM(32379124),
+    why: "Written for clinicians, it gives the group a shared MSK vocabulary before we read the evidence." },
+  { w: 10, month: 3, type: "Systematic review and meta-analysis", title: "Artificial intelligence in fracture detection",
+    cite: "Radiology 2022", url: PM(35348381),
+    why: "The most cited MSK review in our search, covering the most mature MSK use of AI." },
+  { w: 11, month: 3, type: "Primary study", title: "Deep neural network improves fracture detection by clinicians",
+    cite: "Proc Natl Acad Sci U S A 2018", url: PM(30348771),
+    why: "A study from last week's reference list that tests clinicians with and without AI, so we can check the pooled result against one study." },
+  { w: 12, month: 3, type: "Scoping review", title: "Risk prediction in spine surgery, traditional models, AI and the challenge of translation",
+    cite: "Spine Deform 2026", url: PM(41973342),
+    why: "Takes MSK beyond imaging into risk prediction, and closes the term by asking what it takes to move these tools into practice." },
+];
+
+const STATIC_QS = {
+  1: [
+    ["Warm-up", ["Which barrier have you seen yourself? Which facilitator have you seen work?"]],
+    ["Appraisal", [
+      "This is a scoping review. What can a scoping review claim, and what can it not claim, compared with a systematic review?",
+      "Only three databases were searched, two of them engineering databases. Whose evidence might be missing?",
+      "How were the themes coded, and by how many people? How would a second coder change your trust in the 18 categories?",
+      "Check the PRISMA numbers. Do they add up?",
+    ]],
+    ["So what", [
+      "The paper says trust is central. What would build your trust in an AI tool on your ward?",
+      "It calls for a governance structure. Who should sit on it in an NHS trust?",
+    ]],
+  ],
+  2: [
+    ["Design", [
+      "Why did they send alerts to rapid response nurses and not to emergency department doctors? Would that work in your hospital?",
+      "They chose performance over interpretability. When is that acceptable, and when is it not?",
+    ]],
+    ["Evidence", [
+      "About 8000 hours of staff time went into this. Who would pay for that in the NHS?",
+      "A before-and-after design with no outcome data yet. Is this a success, or a successful launch?",
+    ]],
+    ["So what", [
+      "Compare the lessons here with last week's barrier and facilitator themes. Which themes does this paper confirm, and which does it add?",
+      "What would a similar tool look like in orthopaedics, for example post-operative deterioration after hip fracture surgery?",
+    ]],
+  ],
+};
+
+const FOCUS = {
+  adoption: {
+    n: "①", title: "Adoption", month: "Month 1",
+    intro: "What stops AI tools from being used in everyday care, what helps, and how teams plan for it. Ranked within each block by Relative Citation Ratio (RCR) from NIH iCite, where 1.0 is the field average. Starred papers are the ones we read.",
+    blocks: [
+      ["AI era, 2015–2024", [
+        [44.1, 2024, "Barriers to and facilitators of AI adoption in health care, scoping review", 39207831, "Newest highly cited review, adds facilitators, finds trust central", "W1"],
+        [48.8, 2023, "Barriers to the implementation of AI in healthcare, systematic review", 37927664, "Highest RCR in this block, six barrier themes, barriers only, searched 2021", ""],
+        [17.1, 2023, "Stakeholder perspectives of clinical AI implementation, qualitative review", 36626192, "What clinicians and patients say in their own words", "W4"],
+        [14.5, 2022, "Implementation frameworks for AI translation into practice, scoping review", 35084349, "From what blocks adoption to how to plan it", "W5"],
+        [13.6, 2022, "Perceptions and needs of AI in health care to increase adoption, scoping review", 35029538, "User perceptions and needs", ""],
+        [9.9, 2022, "Theory-based scoping review of barriers and facilitators", 36498432, "Maps barriers onto implementation theory", ""],
+      ]],
+      ["2025–2026, ranked by citations per month", [
+        ["3.2/mo", 2025, "Large language models in real-world clinical workflows, systematic review", 41098649, "Adoption in the language-model era", "W6"],
+        ["2.1/mo", 2025, "Clinical implementation of AI scribes, systematic review", 40306686, "A fast-growing deployed use", ""],
+        ["1.8/mo", 2025, "Barriers and facilitators of clinician acceptance, scoping review", 40233955, "Clinician acceptance", ""],
+        ["1.8/mo", 2025, "Patient perspectives on AI in healthcare, global scoping review", 40494217, "The patient side", ""],
+      ]],
+      ["Before 2015, clinical decision support", [
+        [59.2, 2005, "Effects of computerised clinical decision support on practitioner performance and patient outcomes", 15755945, "Earliest strong evidence that decision support changes practice", ""],
+        [51.0, 2005, "Improving clinical practice using decision support, features critical to success", 15767266, "The adoption question, twenty years early", "W3"],
+        [16.1, 2013, "Implementing patient decision support into routine practice, systematic review", 24625083, "Implementation in routine care", ""],
+      ]],
+    ],
+  },
+  models: {
+    n: "②", title: "Model types and specialties", month: "Month 2",
+    intro: "A model suits a specialty when its input matches the data that specialty produces every day. Images suit image models, free text suits language models, rows of variables suit tabular risk models, and signals over time suit time-series models.",
+    blocks: [
+      ["Overview reviews", [
+        [39.8, 2024, "AI and decision-making in healthcare, review of reviews", 38449840, "Widest view of AI in clinical decisions", ""],
+        [31.1, 2024, "Explainable AI and clinicians' trust", 39476365, "Links model type to trust", ""],
+        [27.2, 2024, "Generative AI in healthcare, scoping review", 38733640, "The newest model family", ""],
+        [24.8, 2024, "Generative AI and ethical considerations, scoping review", 39294061, "Ethics checklist for generative AI", ""],
+        ["2.9/mo", 2026, "Human-in-the-loop AI in healthcare", 41740273, "How people and models share the work", ""],
+      ]],
+      ["Top review per model type", [
+        [69.4, 2018, "Convolutional neural networks, overview and application in radiology", 29934920, "Image models and image specialties", "W8"],
+        [53.3, 2024, "Chatbots and large language models in radiology, a practical primer", 38226883, "Language models in a report-heavy specialty", ""],
+        [8.4, 2022, "Machine learning prediction models in orthopaedic surgery", 33734466, "Tabular risk models", ""],
+        [1.0, 2020, "Machine learning in electrocardiography and echocardiography", 33037949, "Signal models, a thin literature", ""],
+      ]],
+    ],
+    heat: true,
+  },
+  msk: {
+    n: "③", title: "Musculoskeletal care", month: "Month 3",
+    intro: "Which kinds of AI are used for which MSK conditions. Most reviews cover imaging, especially fracture detection and knee osteoarthritis. Risk prediction in spine and arthroplasty is growing.",
+    blocks: [
+      ["Fracture", [
+        [32.5, 2022, "AI in fracture detection, systematic review and meta-analysis", 35348381, "Most cited MSK review, the most mature use", "W10"],
+        [20.5, 2023, "AI for hip fracture detection and outcome prediction", 36930153, "Detection and prediction in one condition", ""],
+        [15.2, 2024, "AI in commercial fracture detection products", 39367147, "Tools actually on the market", ""],
+        ["0.5/mo", 2024, "AI-guided assessment of femoral neck fractures", 39334556, "Recent meta-analysis", ""],
+      ]],
+      ["Osteoarthritis and arthroplasty", [
+        [13.5, 2025, "Deep learning X-ray for knee osteoarthritis grading", 38997539, "Second major imaging use", ""],
+        ["0.5/mo", 2025, "AI and machine learning in knee arthroplasty", 40022960, "Planning and outcome prediction", ""],
+      ]],
+      ["Spine", [
+        ["2.0/mo", 2026, "Risk prediction in spine surgery, traditional models and AI", 41973342, "Beyond imaging, fastest rising MSK review", "W12"],
+        ["2.0/mo", 2026, "Digital twins and multimodal AI in spine care", 42101555, "Multimodal models", ""],
+      ]],
+      ["Overview, language models and movement", [
+        [16.1, 2020, "AI and orthopaedics, an introduction for clinicians", 32379124, "Shared vocabulary", "W9"],
+        [10.5, 2024, "Comprehensive review of deep learning in orthopaedics", 39079201, "Broad deep learning overview", ""],
+        [12.2, 2023, "ChatGPT in orthopaedics, narrative review", 38026475, "Only language-model entry, weakest design", ""],
+        [6.6, 2001, "Analytical techniques for gait data, neural network methods", 11240358, "Early AI for movement data", ""],
+      ]],
+    ],
+  },
+};
+
+const HEAT = {
+  cols: ["Image models", "Tabular risk models", "Language models", "Signal models"],
+  rows: [
+    ["Radiology", 40, 1, 36, 0], ["Pathology", 27, 0, 10, 0], ["Dermatology", 5, 1, 3, 0],
+    ["Ophthalmology", 18, 0, 17, 0], ["Cardiology", 2, 1, 8, 1], ["Oncology", 21, 6, 12, 0],
+    ["Orthopaedics / MSK", 16, 5, 13, 0], ["Psychiatry", 10, 3, 9, 1],
+  ],
+};
+
+let liveQs = {};
+let liveAns = {};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+function home() {
+  const months = [
+    [1, "Adoption", "What blocks AI from being used, and what helps"],
+    [2, "Model types and specialties", "Why different kinds of AI suit different specialties"],
+    [3, "Musculoskeletal care", "Which AI is used for which MSK condition"],
+  ];
+  return `
+  <section>
+    <span class="eyebrow">PHI Lab · weekly AI discussion · three months, twelve sessions</span>
+    <h1>AI adoption in healthcare</h1>
+    <p class="lede">This is the weekly AI discussion of the PHI Lab, run as a journal club. AI tools are being built faster than hospitals can adopt them. This journal club asks why, and what that means for musculoskeletal care.</p>
+  </section>
+  <section>
+    <h2>Three focuses</h2>
+    <div class="focus-grid">
+      ${months.map(([m, t, d], i) => `<a class="focus" href="#${["adoption", "models", "msk"][i]}"><span class="month">Month ${m}</span><h3>${["①", "②", "③"][i]} ${t}</h3><p>${d}</p></a>`).join("")}
+    </div>
+    <p>We start with adoption so everyone shares the same vocabulary of barriers and facilitators. Every later paper is then read through that lens. Each month mixes reviews, for the big picture, with at least one primary study, to check a review against real evidence.</p>
+  </section>
+  <section>
+    <h2>Each session, 60 minutes</h2>
+    <div class="steps">
+      <div><b>0–5</b>Why this paper</div>
+      <div><b>5–15</b>What they did</div>
+      <div><b>15–35</b>Appraisal</div>
+      <div><b>35–50</b>So what for us</div>
+      <div><b>50–60</b>One take-home each</div>
+    </div>
+    <p class="note">Questions go up before each session. Answers appear on the week's page after we have discussed them.</p>
+  </section>
+  <section>
+    <h2>Programme</h2>
+    <p class="note">Dates to be confirmed.</p>
+    <div class="timeline">
+      ${[1, 2, 3].map(m => `<div class="eyebrow monthhead">Month ${m}</div>` + WEEKS.filter(x => x.month === m).map(x => `
+        <a href="#w${x.w}"><span class="wk">W${x.w}</span><span class="ttl">${esc(x.title)}<br><span class="ty">${esc(x.type)} · ${esc(x.cite)}</span></span>${hasQs(x.w) ? '<span class="chip ready">Questions up</span>' : '<span class="chip">Coming</span>'}</a>`).join("")).join("")}
+    </div>
+  </section>`;
+}
+
+function hasQs(w) { return (liveQs[w] && liveQs[w].length) || STATIC_QS[w]; }
+
+function paperTable(rows) {
+  return `<div class="tablebox"><table>
+    <thead><tr><th>RCR</th><th>Year</th><th>Paper</th><th>Why it matters</th><th>Read</th></tr></thead>
+    <tbody>${rows.map(([r, y, t, pm, why, wk]) => `<tr><td class="num">${r}</td><td class="num">${y}</td><td><a href="${PM(pm)}" target="_blank" rel="noopener">${esc(t)}</a></td><td>${esc(why)}</td><td>${wk ? `<a class="pick" href="#${wk.toLowerCase()}">★ ${wk}</a>` : ""}</td></tr>`).join("")}</tbody>
+  </table></div>`;
+}
+
+function heat() {
+  const cls = n => n >= 30 ? "h4" : n >= 15 ? "h3" : n >= 5 ? "h2" : "h1";
+  return `<section><h2>How crowded is each pairing?</h2>
+  <p class="note">Number of reviews per specialty and model type, PubMed 2017–2024, title search, so counts are lower bounds.</p>
+  <div class="tablebox"><table class="heat"><thead><tr><th>Specialty</th>${HEAT.cols.map(c => `<th>${c}</th>`).join("")}</tr></thead>
+  <tbody>${HEAT.rows.map(([s, ...v]) => `<tr><td>${s}</td>${v.map(n => `<td class="c ${cls(n)}">${n}</td>`).join("")}</tr>`).join("")}</tbody></table></div></section>`;
+}
+
+function focus(key) {
+  const f = FOCUS[key];
+  return `<section><span class="eyebrow">${f.month}</span><h1>${f.n} ${f.title}</h1><p class="lede">${f.intro}</p></section>
+  ${f.heat ? heat() : ""}
+  ${f.blocks.map(([h, rows]) => `<section><h2>${h}</h2>${paperTable(rows)}</section>`).join("")}
+  <p class="note">Figures ending in /mo are citations per month since publication, used where papers are too new for a stable RCR.</p>`;
+}
+
+function week(w) {
+  const x = WEEKS.find(k => k.w === w);
+  const groups = liveQs[w] && liveQs[w].length ? liveQs[w] : STATIC_QS[w];
+  let qn = 0;
+  const qs = groups
+    ? groups.map(([g, list]) => `<div class="qgroup">${esc(g)}</div><ol class="qs" start="${qn + 1}">${list.map(q => { qn++; return `<li>${esc(q)}</li>`; }).join("")}</ol>`).join("")
+    : `<p class="note">Questions go up the week before this session.</p>`;
+  const ans = liveAns[w];
+  const answers = ans && ans.length
+    ? `<div class="answers open"><span class="state">Answers · released after the session</span>${ans.map(a => `<p>${esc(a)}</p>`).join("")}</div>`
+    : `<div class="answers"><span class="state">Answers locked</span><p class="note">These appear here after we have discussed the paper.</p></div>`;
+  return `
+  <nav class="weeknav" aria-label="Weeks">${WEEKS.map(k => `<a href="#w${k.w}" ${k.w === w ? 'aria-current="page"' : ""}>W${k.w}</a>`).join("")}</nav>
+  <section><span class="eyebrow">Week ${w} · Month ${x.month} · ${esc(x.type)}</span><h1>${esc(x.title)}</h1></section>
+  <div class="paper">
+    <span class="cite">${esc(x.cite)}</span>
+    <div><a href="${x.url}" target="_blank" rel="noopener">Open the paper</a>${x.alt ? ` · <a href="${x.alt}" target="_blank" rel="noopener">Free full text</a>` : ""}</div>
+  </div>
+  <section><h2>Why we read it</h2><p>${esc(x.why)}</p></section>
+  <section><h2>Discussion questions</h2>${qs}</section>
+  <section><h2>Answers</h2>${answers}</section>`;
+}
+
+function render() {
+  const h = (location.hash || "#home").slice(1);
+  let tab = "home", html;
+  const m = h.match(/^w(\d{1,2})$/);
+  if (m && WEEKS.some(k => k.w === +m[1])) { tab = "week"; html = week(+m[1]); }
+  else if (FOCUS[h]) { tab = h; html = focus(h); }
+  else html = home();
+  document.getElementById("view").innerHTML = html;
+  document.querySelectorAll("nav.tabs a").forEach(a => {
+    if (a.dataset.tab === tab) {
+      a.setAttribute("aria-current", "page");
+    } else {
+      a.removeAttribute("aria-current");
+    }
+  });
+}
+window.addEventListener("hashchange", () => { render(); window.scrollTo(0, 0); });
+render();
+
+(async () => {
+  const load = async f => { try { const r = await fetch(f, { cache: "no-cache" }); return r.ok ? await r.json() : {}; } catch { return {}; } };
+  const [q, a] = await Promise.all([load("data/questions.json"), load("data/answers.json")]);
+  for (const [k, v] of Object.entries(q)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveQs[n] = v.map(g => [g.label || "", Array.isArray(g.items) ? g.items : []]); }
+  for (const [k, v] of Object.entries(a)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v) && v.length) liveAns[n] = v.map(String); }
+  render();
+})();
+</script>
+
+</body>
+</html>
