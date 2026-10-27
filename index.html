@@ -144,6 +144,8 @@ ol.qs { margin: 0; padding-left: 1.4em; display: flex; flex-direction: column; g
 .fig .credit { display: block; font-size: .78rem; }
 .answers { border: 1px dashed var(--lock); border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
 .answers.open { border-style: solid; border-color: var(--accent); }
+.answers h3 { font-size: 1rem; margin-top: 8px; }
+.postlist { margin: 0; padding-left: 1.3em; display: flex; flex-direction: column; gap: 6px; max-width: 68ch; }
 .answers .state { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--lock); }
 .answers.open .state { color: var(--accent); }
 .heat td.c { text-align: center; font-family: var(--mono); }
@@ -422,7 +424,7 @@ function sessionLinks(w) {
   const card = (when, title, desc, url, label) => `<div><span class="when">${when}</span><h3>${title}</h3><p>${desc}</p>${safe(url) ? `<a class="go" href="${esc(safe(url))}" target="_blank" rel="noopener">${label} →</a>` : `<span class="soon">Link coming soon</span>`}</div>`;
   return `<section><h2>This session</h2><div class="sess">
     ${card("Before", "Pre-session check-in", "Tells us what you already know and think about this week's topic, so we can pitch the discussion. It also works as the sign-in sheet.", L.pre, "Open the check-in")}
-    ${card("During", "Shared discussion notes", "One document for the whole group. Open it during the session and add your points as we talk.", L.notes, "Open the notes")}
+    ${card("During", "Discussion doc", "The 30-minute running order, the learnings table, breakout prompts and main-room questions. Everyone edits it during the session.", L.notes, "Open the discussion doc")}
     ${card("After", "Session review", "Rate the session and leave any feedback, so we keep a record and improve the next one.", L.post, "Open the review")}
   </div></section>`;
 }
@@ -435,9 +437,15 @@ function week(w) {
     ? groups.map(([g, list]) => `<div class="qgroup">${esc(g)}</div><ol class="qs" start="${qn + 1}">${list.map(q => { qn++; return `<li>${esc(q)}</li>`; }).join("")}</ol>`).join("")
     : `<p class="note">Questions go up the week before this session.</p>`;
   const ans = liveAns[w];
-  const answers = ans && ans.length
-    ? `<div class="answers open"><span class="state">Answers · released after the session</span>${ans.map(a => `<p>${esc(a)}</p>`).join("")}</div>`
-    : `<div class="answers"><span class="state">Answers locked</span><p class="note">These appear here after we have discussed the paper.</p></div>`;
+  const block = (title, items) => items.length ? `<h3>${title}</h3><ul class="postlist">${items.map(s => `<li>${esc(s)}</li>`).join("")}</ul>` : "";
+  const answers = ans
+    ? `<div class="answers open"><span class="state">Released after the session</span>
+        ${ans.summary ? `<p>${esc(ans.summary)}</p>` : ""}
+        ${ans.answers.length ? `<h3>Answers to the discussion questions</h3><ol class="postlist">${ans.answers.map(s => `<li>${esc(s)}</li>`).join("")}</ol>` : ""}
+        ${block("Feedback highlights", ans.highlights)}
+        ${block("Take-home messages", ans.takehomes)}
+      </div>`
+    : `<div class="answers"><span class="state">Locked until after the session</span><p class="note">Answers, feedback highlights and the group's take-home messages appear here after we have discussed the paper.</p></div>`;
   const figs = (liveFigs[w] || []).filter(f => /^assets\/figures\/[\w.-]+$/.test(f.src || ""));
   const hero = figs[0];
   const full = x.alt || x.url;
@@ -460,7 +468,7 @@ function week(w) {
   ${more}
   ${sessionLinks(w)}
   <section><h2>Discussion questions</h2>${qs}</section>
-  <section><h2>Answers</h2>${answers}</section>
+  <section><h2>After the session</h2>${answers}</section>
   </div>`;
 }
 
@@ -517,7 +525,14 @@ render();
   for (const [k, v] of Object.entries(figs)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveFigs[n] = v; }
   for (const [k, v] of Object.entries(l)) { const n = +k.replace(/^w/, ""); if (n && v && typeof v === "object") liveLinks[n] = v; }
   for (const [k, v] of Object.entries(q)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v)) liveQs[n] = v.map(g => [g.label || "", Array.isArray(g.items) ? g.items : []]); }
-  for (const [k, v] of Object.entries(a)) { const n = +k.replace(/^w/, ""); if (n && Array.isArray(v) && v.length) liveAns[n] = v.map(String); }
+  for (const [k, v] of Object.entries(a)) {
+    const n = +k.replace(/^w/, "");
+    if (!n || !v) continue;
+    const post = Array.isArray(v) ? { answers: v } : v;
+    const list = x => (Array.isArray(x) ? x.map(String) : []);
+    const entry = { answers: list(post.answers), highlights: list(post.highlights), takehomes: list(post.takehomes), summary: typeof post.summary === "string" ? post.summary : "" };
+    if (entry.answers.length || entry.highlights.length || entry.takehomes.length || entry.summary) liveAns[n] = entry;
+  }
   render();
 })();
 </script>
