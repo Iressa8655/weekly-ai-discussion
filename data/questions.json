@@ -1,1 +1,36 @@
-{}
+{
+  "w1": [
+    {
+      "label": "Warm-up, quick answers from the paper",
+      "items": [
+        "What process did the authors follow to conduct this scoping review?",
+        "How did they arrive at their research question, and why did they ask about facilitators as well as barriers?",
+        "Of the 18 categories, which three do the authors name as the core considerations for trustworthy, adoption-centric AI?",
+        "What examples of bias problems does the paper give?"
+      ]
+    },
+    {
+      "label": "Breakout rooms, each room picks one",
+      "items": [
+        "The authors read every theme both ways, as a barrier and as a facilitator. Describe how they did this, and why they chose to.",
+        "The paper cites four reasons to make AI explainable: to justify, to control, to improve and to discover. Give one real or imagined example of each from your own field.",
+        "What does the paper suggest to fix bias problems? Which of these fixes would have caught the cost-as-a-proxy problem in the Obermeyer example?"
+      ]
+    },
+    {
+      "label": "Main room",
+      "items": [
+        "When the authors say trust is one of the most critical elements of AI adoption, what do they mean? Think of a tool you stopped trusting. What broke the trust?",
+        "Can anyone describe what happened between Google DeepMind and the Royal Free? Who do you think owns patient data, the patient, the doctor or the hospital, and what does the law say?",
+        "The authors say adoption must be considered from the moment a system is conceived until it is implemented and sustained. What examples do they give, and who should sit on the governance group that oversees it?"
+      ]
+    },
+    {
+      "label": "If time allows",
+      "items": [
+        "The authors call fairness, explainability and ethics the centre of the barriers. Are these what actually stops tools on the ground, or what papers like to write about?",
+        "Which barrier have you seen yourself, and which facilitator have you seen work?"
+      ]
+    }
+  ]
+}
