@@ -24,6 +24,13 @@
       "link": "https://doi.org/10.2196/15182"
     },
     {
+      "src": "assets/figures/w2-sendak-2020-why-it-worked.jpg",
+      "alt": "Eight numbered panels, from problem assessment to evaluation, each with what Duke did well, and a banner saying frontline staff were involved in every step",
+      "caption": "Why Sepsis Watch worked, step by step. The 8 steps of Table 1, with what Duke did well at each one.",
+      "credit": "Summary drawn with BioRender from Sendak MP et al. JMIR Med Inform 2020;8(7):e15182.",
+      "link": "https://doi.org/10.2196/15182"
+    },
+    {
       "src": "assets/figures/w2-sendak-2020-journal-page.jpg",
       "alt": "Journal page of the paper on JMIR Medical Informatics, showing title and authors",
       "caption": "The paper on JMIR Medical Informatics.",
@@ -52,7 +59,7 @@
       "src": "assets/figures/w10-kuo-2022-pooled-accuracy.jpg",
       "alt": "Forest plot of pooled sensitivity, specificity and AUC for algorithms and clinicians, internal and external validation",
       "caption": "Figure 6, pooled sensitivity, specificity and AUC for algorithms and clinicians, all studies against low-bias studies.",
-      "credit": "Kuo RYL et al. Radiology 2022;304:50\u201362, Figure 6. Reproduced for teaching discussion.",
+      "credit": "Kuo RYL et al. Radiology 2022;304:50–62, Figure 6. Reproduced for teaching discussion.",
       "link": "https://doi.org/10.1148/radiol.211785"
     },
     {
