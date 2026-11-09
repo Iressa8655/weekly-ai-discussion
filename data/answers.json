@@ -17,5 +17,18 @@
     ],
     "highlights": [],
     "takehomes": []
+  },
+  "w2": {
+    "summary": "Sendak et al. describe how a deep learning sepsis alert, Sepsis Watch, was built and put into routine care at Duke, and show that most of the effort went into workflow design, relationships with clinicians and governance.",
+    "answers": [
+      "Why rapid response nurses. Frontline emergency staff already had alarm fatigue from an earlier alert. Rapid response nurses could triage alerts across the hospital and call the right doctor (p.4).",
+      "Performance over interpretability. This is acceptable when the action is the same whatever the cause and a clinician confirms before acting, as with sepsis bundles. It is not acceptable when the AI's reason would change the treatment (p.6).",
+      "Who pays for 8000 hours in the NHS. The paper counts the time as an investment that built reusable infrastructure (p.11). In an NHS trust it would most likely sit with a digital or transformation budget. This NHS point is our suggestion, not from the paper.",
+      "Success or successful launch. A successful launch. The design is pre-post at a single site, and this paper reports no patient outcomes (p.10 to p.12).",
+      "Compared with Week 1. It confirms Hassan's points on workflow integration, trust built through clinical champions, and governance. It adds professional authority, that developers must not be seen as telling clinicians how to do their work (p.10).",
+      "An orthopaedic version. For example, an early warning for deterioration after hip fracture surgery, with alerts going to an orthogeriatric or outreach nurse, capped per hour, and overseen by a governance group from orthopaedics, geriatrics and nursing. This is a design idea, not a published tool."
+    ],
+    "highlights": [],
+    "takehomes": []
   }
 }

@@ -426,6 +426,7 @@ function sessionLinks(w) {
     ${card("Before", "Pre-session check-in", "Tells us what you already know and think about this week's topic, so we can pitch the discussion. It also works as the sign-in sheet.", L.pre, "Open the check-in")}
     ${card("During", "Discussion doc", "The 30-minute running order, the learnings table, breakout prompts and main-room questions. Everyone edits it during the session.", L.notes, "Open the discussion doc")}
     ${card("After", "Session review", "Rate the session and leave any feedback, so we keep a record and improve the next one.", L.post, "Open the review")}
+    ${L.slides ? card("Slides", "Overview slides", "The short briefing that opens the discussion, as a PowerPoint file.", L.slides, "Download the slides") : ""}
   </div></section>`;
 }
 
