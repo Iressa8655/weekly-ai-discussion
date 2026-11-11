@@ -30,5 +30,18 @@
     ],
     "highlights": [],
     "takehomes": []
+  },
+  "w3": {
+    "summary": "Kawamoto et al. reviewed 70 randomised trials of clinical decision support and found four features linked to improved practice: support given automatically as part of the workflow, at the time and place of the decision, as a recommendation, and by computer.",
+    "answers": [
+      "Odds ratio of 112 with no upper limit. Every trial without the feature failed to improve practice, so the association is strong but its size cannot be estimated. Quote it as a strong association, not as a precise number.",
+      "A binary outcome. It hides the effect size, so a tiny and a large improvement count the same.",
+      "71 comparisons and 18 variables. Treat the four features as a strong hypothesis. Over-fitting is possible, as the authors acknowledge.",
+      "Then and now. All four still map well onto AI tools. Automatic, in-workflow support is exactly how Sepsis Watch (Week 2) was designed.",
+      "Involvement. The two papers measure different things. Kawamoto looked at whether practice improved, while Sendak described what it took to get a tool adopted.",
+      "MSK. Most fracture detection tools meet three of the four features. The usual gap is the recommendation, because a box on the image is an assessment and does not say what to do next."
+    ],
+    "highlights": [],
+    "takehomes": []
   }
 }

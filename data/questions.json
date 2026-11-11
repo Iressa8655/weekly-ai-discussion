@@ -32,5 +32,23 @@
         "Which barrier have you seen yourself, and which facilitator have you seen work?"
       ]
     }
+  ],
+  "w3": [
+    {
+      "label": "Breakout",
+      "items": [
+        "Table 6 gives an odds ratio of 112 with no upper limit. What does that tell us, and how should we quote it?",
+        "The outcome is binary, success or not. What does that hide?",
+        "There were 71 comparisons and 18 variables. How much should we trust the four features?"
+      ]
+    },
+    {
+      "label": "Main room",
+      "items": [
+        "Then and now. These systems date from before 2003. Which of the four features still apply to AI tools today?",
+        "Involvement. Local user involvement did not predict success here, yet Sendak relied on it. Who is right?",
+        "MSK. Does a fracture detection tool meet the four features?"
+      ]
+    }
   ]
 }
