@@ -93,5 +93,45 @@
         "Which barrier do you expect to find in MSK care that the general reviews would miss?"
       ]
     }
+  ],
+  "w5": [
+    {
+      "label": "Warm-up, quick answers from the paper",
+      "items": [
+        "What are the six barrier themes, and which theme had the most papers behind it?",
+        "Who wrote this review, and how might a team of NHS clinicians see barriers differently from engineers or managers?",
+        "The authors set their themes before reading the papers. How did they do this, and where did the themes come from?"
+      ]
+    },
+    {
+      "label": "Round 1, breakout rooms, ideas from the paper (each room picks one)",
+      "items": [
+        "Room 1. Most of the evidence in this review is opinion, not studies of real deployments. Does a barrier count if nobody has measured it?",
+        "Room 2. Liability and regulation is one theme. If an AI tool misses a fracture, who should be responsible, the clinician, the hospital or the company?",
+        "Room 3. Pick one theme, for example workforce or patient safety, and give a real example from your own work or training."
+      ]
+    },
+    {
+      "label": "Round 1, main room",
+      "items": [
+        "This review lists barriers only, and Hassan 2024 in W1 looked at facilitators as well. What do we lose when a review leaves out facilitators?",
+        "Which of the six themes do you think matters most in the NHS today, and why?"
+      ]
+    },
+    {
+      "label": "Round 2, breakout rooms, back to our review (each room picks one)",
+      "items": [
+        "Room 1, themes. Should we start our charting with fixed themes, like Ahmed, or let themes come from the studies? What are the risks of each?",
+        "Room 2, evidence. Our review only includes tools used in practice. Write one rule that stops opinion pieces getting into our review.",
+        "Room 3, MSK. Go through the six themes. Which would look different in MSK care, and is any MSK barrier missing from the list?"
+      ]
+    },
+    {
+      "label": "Round 2, main room",
+      "items": [
+        "What is one thing we should learn from this review, and one thing we should not copy?",
+        "Can we use Ahmed's six themes as a checklist when we chart our studies? What would we need to add?"
+      ]
+    }
   ]
 }
