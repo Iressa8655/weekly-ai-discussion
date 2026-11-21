@@ -60,6 +60,15 @@
       ]
     },
     {
+      "label": "Interesting points, share what surprised you",
+      "items": [
+        "What was the most interesting or surprising finding in the paper you read? Would it change how we run our review?",
+        "The theatre scheduling tool raised theatre efficiency from 39% to 93%. Why might a non-clinical tool be easier to deploy than a diagnostic one?",
+        "Imaging, primary care and sepsis all have barrier reviews, but MSK care does not. Why do you think MSK has been left out?",
+        "Was there a barrier or facilitator that appeared in almost every specialty? Do you expect to see it in MSK care too?"
+      ]
+    },
+    {
       "label": "Breakout rooms, learn from it or avoid it",
       "items": [
         "Room 1, search. Look at how the reviews built their searches. Which search ideas should we copy, and which mistakes, such as missing keywords or too few databases, should we avoid?",
