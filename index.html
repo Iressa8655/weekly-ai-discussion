@@ -208,9 +208,42 @@ const WEEKS = [
   { w: 4, month: 1, type: "Qualitative systematic review", title: "Stakeholder perspectives of clinical AI implementation",
     cite: "J Med Internet Res 2023", url: PM(36626192),
     why: "Moves from lists of barriers to what clinicians and patients actually say about AI in their own words." },
-  { w: 5, month: 2, type: "Scoping review", title: "Implementation frameworks for AI translation into health care practice",
-    cite: "J Med Internet Res 2022", url: PM(35084349),
-    why: "Shifts the question from what blocks adoption to how to plan it, by mapping the implementation frameworks in use." },
+  { w: 5, month: 2, type: "Reading set, our scoping review", title: "Who has already studied real-world AI in musculoskeletal care?",
+    cite: "Preliminary search for our scoping review, PubMed and Embase, 21 November 2026", url: PM(42934674),
+    why: "Our scoping review now covers any AI tool used in real-world MSK care, not only imaging. This week we read what already exists, the closest MSK reviews, the barrier and facilitator reviews from other specialties, and two deployed MSK tools, so we can say clearly where the gap is.",
+    blocks: [
+      ["1. Existing reviews closest to ours", [
+        ["new", 2026, "Clinical translation of AI in musculoskeletal care, systematic review of applications, evidence gaps and implementation readiness", 42934674, "Closest title to ours, but imaging only and technical validation, so we must cite it and show how we differ", ""],
+        ["new", 2025, "The implementation of AI in upper extremity surgery, systematic review", 41089209, "Implementation focus, upper limb surgery only", ""],
+        ["new", 2026, "AI in rheumatology practice, from implementation concerns to imaging and clinical application", 42549989, "Rheumatology only, mainly accuracy", ""],
+        ["–", 2025, "AI adoption by allied health professionals, scoping review protocol", 40107682, "Organised by profession, not by MSK, but a useful method template", ""],
+        [5.4, 2024, "Challenges and opportunities of AI implementation within sports science and sports medicine teams", 38832311, "Barrier angle, sports medicine only", ""],
+        [15.7, 2023, "AI in physical rehabilitation, systematic review", 38042593, "Mainly technical", ""],
+        ["new", 2026, "AI in the care of systemic lupus erythematosus, current capabilities and translational barriers", 42161343, "One disease, narrative review", ""],
+        ["new", 2026, "Human-AI collaboration for dysphagia rehabilitation, from effectiveness to implementation complexity", 42270737, "Not MSK, but the concept closest to ours, and in our target journal", ""],
+        [2.4, 2024, "The Clinical Practice Integration of AI (CPI-AI) framework", 39288942, "An orthopaedic framework, not a review, useful as background", ""],
+        ["new", 2026, "Real-world effectiveness of AI-enabled clinical decision support in primary care, systematic review", 42849036, "Not MSK, but a design we can copy", ""],
+      ]],
+      ["2. Barrier and facilitator reviews from other specialties", [
+        [47.2, 2024, "Barriers to and facilitators of AI adoption in health care, scoping review", 39207831, "The most direct comparison, its barrier categories can be borrowed", "W1"],
+        [48.9, 2023, "A systematic review of the barriers to the implementation of AI in healthcare", 37927664, "Background", ""],
+        [17.2, 2023, "Stakeholder perspectives of clinical AI implementation, qualitative evidence", 36626192, "Uses NASSS, the method closest to ours", "W4"],
+        [15.4, 2025, "Barriers to and facilitators of clinician acceptance and use of AI in healthcare settings, scoping review", 40233955, "Clinician view, the same population as ours", ""],
+        [10.5, 2022, "AI implementation in healthcare, a theory-based scoping review of barriers and facilitators", 36498432, "Theory-based, can be compared with NASSS", ""],
+        [14.3, 2022, "Implementation frameworks for AI translation into health care practice, scoping review", 35084349, "Explains why we chose NASSS", ""],
+        [9.7, 2025, "Facilitators and barriers to implementing AI in routine medical imaging", 40690758, "Imaging is already covered, which supports widening our scope", ""],
+        [6.7, 2024, "Barriers and facilitators of AI for breast imaging diagnosis in clinical practice", 37658895, "A single-specialty design template", ""],
+        [10.8, 2024, "Implementing AI in hospitals to achieve a learning health system, enablers and barriers", 39094106, "Barriers at organisation level", ""],
+        [8.1, 2025, "Perceptions of, barriers to and facilitators of AI use in primary care, qualitative systematic review", 40560641, "A single-setting template", ""],
+        [7.0, 2023, "Deployment of machine learning to predict sepsis, application of the SALIENT framework", 37172264, "Includes only deployed tools, the inclusion rule closest to ours", ""],
+        [6.4, 2024, "Implementation of machine learning applications in health care organisations, empirical studies", 39586084, "Empirical implementation studies only", ""],
+      ]],
+      ["3. Key papers, MSK tools already deployed beyond imaging", [
+        [1.7, 2024, "First deployment of AI recommendations in orthopaedic surgery", 38362139, "Theatre scheduling for 228 arthroplasties, efficiency rose from 39% to 93%", ""],
+        [0.2, 2023, "Real-world implementation of AI and machine learning for surgical spine patients at two academic systems", 37364939, "EHR-based tools used at Cleveland Clinic and UCSF", ""],
+      ]],
+    ],
+    extra: { text: "Why this matters. The James Lind Alliance Trauma and Orthopaedics digital health partnership lists, as priority 6, the challenges patients and clinicians face using digital tools, and how to address them.", url: "https://www.jla.nihr.ac.uk/priority-setting-partnerships/digital-health-technology-trauma-and-orthopaedics#:~:text=What%20challenges%20do%20patients%20and%20clinicans%20face", label: "JLA top 10 priorities" } },
   { w: 6, month: 2, type: "Systematic review", title: "Large language models in real-world clinical workflows",
     cite: "Front Digit Health 2025", url: PM(41098649),
     why: "The fastest-cited recent adoption review. It shows what changed after large language models arrived." },
@@ -427,7 +460,7 @@ function sessionLinks(w) {
     ${card("During", "Discussion doc", "The 30-minute running order, the learnings table, breakout prompts and main-room questions. Everyone edits it during the session.", L.notes, "Open the discussion doc")}
     ${card("After", "Session review", "Rate the session and leave any feedback, so we keep a record and improve the next one.", L.post, "Open the review")}
     ${L.slides ? card("Slides", "Overview slides", "The short briefing that opens the discussion, as a PowerPoint file.", L.slides, "Download the slides") : ""}
-    ${L.review ? card("Our review", "Scoping review update", "Where our MSK imaging scoping review stands, and what comes next, as a PowerPoint file.", L.review, "Download the update") : ""}
+    ${L.review ? card("Our review", "Scoping review update", "Where our MSK AI scoping review stands, and what comes next, as a PowerPoint file.", L.review, "Download the update") : ""}
   </div></section>`;
 }
 
@@ -461,7 +494,7 @@ function week(w) {
   const heroHtml = hero
     ? `<section class="hero" aria-roledescription="carousel" aria-label="Figures from this paper"><div class="frame"><div class="slides">${figs.map((f, i) => `<figure class="slide${i === 0 ? " on" : ""}" aria-hidden="${i === 0 ? "false" : "true"}"><img src="${esc(f.src)}" alt="${esc(f.alt || "")}"></figure>`).join("")}</div></div>${box}</section>`
     : `<section class="hero noimg">${box}</section>`;
-  const more = "";
+  const more = x.blocks ? `${x.extra ? `<section class="band"><span class="lbl">Priority</span><p>${esc(x.extra.text)} <a href="${esc(x.extra.url)}" target="_blank" rel="noopener">${esc(x.extra.label)} →</a></p></section>` : ""}${x.blocks.map(([h, rows]) => `<section><h2>${esc(h)}</h2>${paperTable(rows)}</section>`).join("")}<p class="note">RCR is the Relative Citation Ratio from NIH iCite, where 1.0 is the field average. "new" means the paper is too recent for an RCR. Titles and abstracts only so far.</p>` : "";
   return `${heroHtml}
   <section class="band"><span class="lbl">Why we read it</span><p>${esc(x.why)}</p></section>
   ${hero ? `<p class="credit-line">Images: ${figs.map(f => `${esc(f.caption || "")} ${esc(f.credit || "")}`).join(" · ")}</p>` : ""}
