@@ -53,27 +53,26 @@
   ],
   "w5": [
     {
-      "label": "Warm-up, quick answers from the reading set",
+      "label": "Warm-up, what each review did",
       "items": [
-        "Ghazanfar 2026 has the title closest to ours. What did it include, and why does that make it different from our review?",
-        "Which specialties already have a review of AI barriers and facilitators? Which one is missing?",
-        "What did the two deployed MSK tools, the theatre scheduling tool and the spine tools, actually change in practice?"
+        "Pick one review from the reading set. What question did it ask, which databases did it search, and what did it count as 'implementation'?",
+        "Ghazanfar 2026 is the closest to our topic. What did it include and exclude, and where does our review start where it stops?"
       ]
     },
     {
-      "label": "Breakout rooms, each room picks one",
+      "label": "Breakout rooms, learn from it or avoid it",
       "items": [
-        "Room 1, existing MSK reviews. Pick two reviews from table 1. For each, write one sentence on how our review will be different. Together these sentences become our gap statement.",
-        "Room 2, other specialties. Hogg 2023 used NASSS and the sepsis review used SALIENT. Which framework would suit MSK care better, and why?",
-        "Room 3, our inclusion rule. The theatre scheduling tool is operational, not a clinical decision. Should it count as 'used in real-world MSK care'? Agree a rule we can all apply at screening."
+        "Room 1, search. Look at how the reviews built their searches. Which search ideas should we copy, and which mistakes, such as missing keywords or too few databases, should we avoid?",
+        "Room 2, inclusion. The sepsis review included only tools that were actually deployed. Ghazanfar mostly included accuracy studies. Which approach fits our review, and what rule should we write for screening?",
+        "Room 3, framework and charting. Hogg 2023 used NASSS and others used SALIENT or no framework at all. What should we borrow for our data charting form, and what would not work for MSK care?"
       ]
     },
     {
-      "label": "Main room",
+      "label": "Main room, what this means for our review",
       "items": [
-        "Most reviews in table 1 judge AI by accuracy. What evidence would convince you that a tool is really being used in routine care?",
-        "The James Lind Alliance lists the challenges of using digital tools in T&O as a top 10 research priority. How should we use this in our protocol and our final paper?",
-        "What is one barrier you expect to find in MSK care that the general reviews would miss?"
+        "List three things we will do the same as these reviews, and three things we will deliberately do differently.",
+        "Several reviews only judged AI by accuracy, or described their methods vaguely. How do we make sure our review does not repeat these weaknesses?",
+        "After reading these, how would you write our gap statement in one sentence?"
       ]
     }
   ]
