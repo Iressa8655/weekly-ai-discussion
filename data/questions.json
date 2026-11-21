@@ -50,5 +50,31 @@
         "MSK. Does a fracture detection tool meet the four features?"
       ]
     }
+  ],
+  "w5": [
+    {
+      "label": "Warm-up, quick answers from the reading set",
+      "items": [
+        "Ghazanfar 2026 has the title closest to ours. What did it include, and why does that make it different from our review?",
+        "Which specialties already have a review of AI barriers and facilitators? Which one is missing?",
+        "What did the two deployed MSK tools, the theatre scheduling tool and the spine tools, actually change in practice?"
+      ]
+    },
+    {
+      "label": "Breakout rooms, each room picks one",
+      "items": [
+        "Room 1, existing MSK reviews. Pick two reviews from table 1. For each, write one sentence on how our review will be different. Together these sentences become our gap statement.",
+        "Room 2, other specialties. Hogg 2023 used NASSS and the sepsis review used SALIENT. Which framework would suit MSK care better, and why?",
+        "Room 3, our inclusion rule. The theatre scheduling tool is operational, not a clinical decision. Should it count as 'used in real-world MSK care'? Agree a rule we can all apply at screening."
+      ]
+    },
+    {
+      "label": "Main room",
+      "items": [
+        "Most reviews in table 1 judge AI by accuracy. What evidence would convince you that a tool is really being used in routine care?",
+        "The James Lind Alliance lists the challenges of using digital tools in T&O as a top 10 research priority. How should we use this in our protocol and our final paper?",
+        "What is one barrier you expect to find in MSK care that the general reviews would miss?"
+      ]
+    }
   ]
 }
