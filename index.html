@@ -208,64 +208,75 @@ const WEEKS = [
   { w: 4, month: 1, type: "Qualitative systematic review", title: "Stakeholder perspectives of clinical AI implementation",
     cite: "J Med Internet Res 2023", url: PM(36626192),
     why: "Moves from lists of barriers to what clinicians and patients actually say about AI in their own words." },
-  { w: 5, month: 2, type: "Systematic review and our reading set", title: "Clinical translation of AI in musculoskeletal care, applications, evidence gaps and implementation readiness",
-    cite: "Ghazanfar Z et al. J Orthop Surg Res 2026;21, plus the reading set from our preliminary search", url: "https://doi.org/10.1186/s13018-026-07130-6", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13711841/",
-    why: "Our scoping review now covers any AI tool used in real-world MSK care, not only imaging. This week we read what already exists, the closest MSK reviews, the barrier and facilitator reviews from other specialties, and two deployed MSK tools, so we can say clearly where the gap is.",
-    blocks: [
-      ["1. Existing reviews closest to ours", [
-        ["new", 2026, "Clinical translation of AI in musculoskeletal care, systematic review of applications, evidence gaps and implementation readiness", 42934674, "Closest title to ours, but imaging only and technical validation, so we must cite it and show how we differ", "W5"],
-        ["new", 2025, "The implementation of AI in upper extremity surgery, systematic review", 41089209, "Implementation focus, upper limb surgery only", "W9"],
-        ["new", 2026, "AI in rheumatology practice, from implementation concerns to imaging and clinical application", 42549989, "Rheumatology only, mainly accuracy", ""],
-        ["–", 2025, "AI adoption by allied health professionals, scoping review protocol", 40107682, "Organised by profession, not by MSK, but a useful method template", ""],
-        [5.4, 2024, "Challenges and opportunities of AI implementation within sports science and sports medicine teams", 38832311, "Barrier angle, sports medicine only", "W10"],
-        [15.7, 2023, "AI in physical rehabilitation, systematic review", 38042593, "Mainly technical", ""],
-        ["new", 2026, "AI in the care of systemic lupus erythematosus, current capabilities and translational barriers", 42161343, "One disease, narrative review", ""],
-        ["new", 2026, "Human-AI collaboration for dysphagia rehabilitation, from effectiveness to implementation complexity", 42270737, "Not MSK, but the concept closest to ours, and in our target journal", "W6"],
-        [2.4, 2024, "The Clinical Practice Integration of AI (CPI-AI) framework", 39288942, "An orthopaedic framework, not a review, useful as background", ""],
-        ["new", 2026, "Real-world effectiveness of AI-enabled clinical decision support in primary care, systematic review", 42849036, "Not MSK, but a design we can copy", ""],
-      ]],
-      ["2. Barrier and facilitator reviews from other specialties", [
-        [47.2, 2024, "Barriers to and facilitators of AI adoption in health care, scoping review", 39207831, "The most direct comparison, its barrier categories can be borrowed", "W1"],
-        [48.9, 2023, "A systematic review of the barriers to the implementation of AI in healthcare", 37927664, "Background", ""],
-        [17.2, 2023, "Stakeholder perspectives of clinical AI implementation, qualitative evidence", 36626192, "Uses NASSS, the method closest to ours", "W4"],
-        [15.4, 2025, "Barriers to and facilitators of clinician acceptance and use of AI in healthcare settings, scoping review", 40233955, "Clinician view, the same population as ours", ""],
-        [10.5, 2022, "AI implementation in healthcare, a theory-based scoping review of barriers and facilitators", 36498432, "Theory-based, can be compared with NASSS", ""],
-        [14.3, 2022, "Implementation frameworks for AI translation into health care practice, scoping review", 35084349, "Explains why we chose NASSS", ""],
-        [9.7, 2025, "Facilitators and barriers to implementing AI in routine medical imaging", 40690758, "Imaging is already covered, which supports widening our scope", "W8"],
-        [6.7, 2024, "Barriers and facilitators of AI for breast imaging diagnosis in clinical practice", 37658895, "A single-specialty design template", ""],
-        [10.8, 2024, "Implementing AI in hospitals to achieve a learning health system, enablers and barriers", 39094106, "Barriers at organisation level", ""],
-        [8.1, 2025, "Perceptions of, barriers to and facilitators of AI use in primary care, qualitative systematic review", 40560641, "A single-setting template", ""],
-        [7.0, 2023, "Deployment of machine learning to predict sepsis, application of the SALIENT framework", 37172264, "Includes only deployed tools, the inclusion rule closest to ours", "W7"],
-        [6.4, 2024, "Implementation of machine learning applications in health care organisations, empirical studies", 39586084, "Empirical implementation studies only", ""],
-      ]],
-      ["3. Key papers, MSK tools already deployed beyond imaging", [
-        [1.7, 2024, "First deployment of AI recommendations in orthopaedic surgery", 38362139, "Theatre scheduling for 228 arthroplasties, efficiency rose from 39% to 93%", "W11"],
-        [0.2, 2023, "Real-world implementation of AI and machine learning for surgical spine patients at two academic systems", 37364939, "EHR-based tools used at Cleveland Clinic and UCSF", "W12"],
-      ]],
-    ],
-    extra: { text: "Why this matters. The James Lind Alliance Trauma and Orthopaedics digital health partnership lists, as priority 6, the challenges patients and clinicians face using digital tools, and how to address them.", url: "https://www.jla.nihr.ac.uk/priority-setting-partnerships/digital-health-technology-trauma-and-orthopaedics#:~:text=What%20challenges%20do%20patients%20and%20clinicans%20face", label: "JLA top 10 priorities" } },
-  { w: 6, month: 2, type: "Systematic review", title: "Human-AI collaboration for dysphagia rehabilitation, from effectiveness to implementation complexity",
-    cite: "Yang W et al. npj Digit Med 2026;9", url: "https://doi.org/10.1038/s41746-026-02729-9", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13254208/",
-    why: "Not MSK, but the concept closest to our review, human-AI collaboration followed all the way to implementation, and published in our target journal." },
-  { w: 7, month: 2, type: "Systematic review", title: "Deployment of machine learning algorithms to predict sepsis, applying the SALIENT implementation framework",
-    cite: "van der Vegt AH et al. J Am Med Inform Assoc 2023;30", url: "https://doi.org/10.1093/jamia/ocad075", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10280361/",
-    why: "It included only tools that were actually deployed, the same inclusion rule as ours, and charted them with an implementation framework." },
-  { w: 8, month: 2, type: "Systematic review and qualitative analysis", title: "Facilitators and barriers to implementing AI in routine medical imaging",
-    cite: "Wenderott K et al. J Med Internet Res 2025;27", url: "https://doi.org/10.2196/63649", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12322614/",
-    why: "Imaging already has its barrier and facilitator review. This is why our review looks beyond imaging." },
-  { w: 9, month: 3, type: "Systematic review", title: "The implementation of artificial intelligence in upper extremity surgery",
-    cite: "Parry D et al. Front Artif Intell 2025;8", url: "https://doi.org/10.3389/frai.2025.1621757", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12515950/",
-    why: "One of the few MSK reviews about implementation, limited to upper limb surgery. What does it find, and what does it miss?" },
-  { w: 10, month: 3, type: "Review", title: "Challenges and opportunities of AI implementation within sports science and sports medicine teams",
-    cite: "Naughton M et al. Front Sports Act Living 2024;6", url: "https://doi.org/10.3389/fspor.2024.1332427", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11144926/",
-    why: "Barriers to AI seen from inside MSK teams, in sports medicine." },
-  { w: 11, month: 3, type: "Primary study", title: "First deployment of artificial intelligence recommendations in orthopaedic surgery",
-    cite: "Al Zoubi F et al. Front Artif Intell 2024;7", url: "https://doi.org/10.3389/frai.2024.1342234", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10867959/",
+  { w: 5, month: 2, type: "Systematic review", title: "Barriers to the implementation of AI in healthcare",
+    cite: "Ahmed MI et al. Cureus 2023", url: "https://doi.org/10.7759/cureus.46454", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10623210/",
+    why: "Six barrier themes from the highest-cited barrier review, a checklist we can test against MSK care." },
+  { w: 6, month: 2, type: "Scoping review", title: "Barriers to and facilitators of clinician acceptance and use of AI in healthcare settings",
+    cite: "Scipion CEA et al. BMJ Open 2025", url: "https://doi.org/10.1136/bmjopen-2024-092624", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12001368/",
+    why: "The clinician view, the same population as our review." },
+  { w: 7, month: 2, type: "Scoping review", title: "AI implementation in healthcare, a theory-based scoping review of barriers and facilitators",
+    cite: "Chomutare T et al. Int J Environ Res Public Health 2022", url: "https://doi.org/10.3390/ijerph192316359", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9738234/",
+    why: "Maps barriers onto implementation theory, so we can compare theories before choosing ours." },
+  { w: 8, month: 3, type: "Scoping review", title: "Implementation frameworks for AI translation into health care practice",
+    cite: "Gama F et al. J Med Internet Res 2022", url: "https://doi.org/10.2196/32215", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8832266/",
+    why: "Which frameworks exist and how they are used. This explains why we chose NASSS." },
+  { w: 9, month: 3, type: "Systematic review", title: "Implementing AI in hospitals to achieve a learning health system, enablers and barriers",
+    cite: "Kamel Rahimi A et al. J Med Internet Res 2024", url: "https://doi.org/10.2196/49655", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11329852/",
+    why: "Moves from the clinician to the hospital, the organisation level of NASSS." },
+  { w: 10, month: 3, type: "Systematic review", title: "Implementation of machine learning applications in health care organisations, empirical studies",
+    cite: "Preti LM et al. J Med Internet Res 2024", url: "https://doi.org/10.2196/55897", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11629039/",
+    why: "Includes only empirical implementation studies, close to our real-world rule." },
+  { w: 11, month: 4, type: "Systematic review and qualitative analysis", title: "Facilitators and barriers to implementing AI in routine medical imaging",
+    cite: "Wenderott K et al. J Med Internet Res 2025", url: "https://doi.org/10.2196/63649", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12322614/",
+    why: "Imaging already has its barrier review. This is why our review looks beyond imaging." },
+  { w: 12, month: 4, type: "Scoping review", title: "Barriers and facilitators of AI for breast imaging diagnosis in clinical practice",
+    cite: "Lokaj B et al. Eur Radiol 2024", url: "https://doi.org/10.1007/s00330-023-10181-6", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10873444/",
+    why: "A single-specialty review, a design template for one field like MSK." },
+  { w: 13, month: 4, type: "Qualitative systematic review", title: "Perceptions of, barriers to and facilitators of AI use in primary care",
+    cite: "Mart\u00c3\u00adnez-Mart\u00c3\u00adnez H et al. J Med Internet Res 2025", url: "https://doi.org/10.2196/71186", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12242059/",
+    why: "A single-setting review of qualitative studies, another template." },
+  { w: 14, month: 4, type: "Systematic review", title: "Real-world effectiveness of AI-enabled clinical decision support in primary care",
+    cite: "Jain Y et al. J Med Internet Res 2026", url: "https://doi.org/10.2196/98630", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13691469/",
+    why: "Asks whether AI works in real practice, not only in tests. A design we can copy." },
+  { w: 15, month: 5, type: "Systematic review", title: "Deployment of machine learning to predict sepsis, applying the SALIENT framework",
+    cite: "van der Vegt AH et al. J Am Med Inform Assoc 2023", url: "https://doi.org/10.1093/jamia/ocad075", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10280361/",
+    why: "Includes only deployed tools, the inclusion rule closest to ours, and charts them with SALIENT." },
+  { w: 16, month: 5, type: "Systematic review", title: "Human-AI collaboration for dysphagia rehabilitation, from effectiveness to implementation complexity",
+    cite: "Yang W et al. NPJ Digit Med 2026", url: "https://doi.org/10.1038/s41746-026-02729-9", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13254208/",
+    why: "Not MSK, but the concept closest to ours, and published in our target journal." },
+  { w: 17, month: 6, type: "Systematic review", title: "Clinical translation of AI in musculoskeletal care, applications, evidence gaps and implementation readiness",
+    cite: "Ghazanfar Z et al. J Orthop Surg Res 2026", url: "https://doi.org/10.1186/s13018-026-07130-6", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13711841/",
+    why: "The closest MSK title to ours, but imaging only and three studies. We must cite it and show how we differ.", extra: { text: "Why this matters. The James Lind Alliance Trauma and Orthopaedics digital health partnership lists, as priority 6, the challenges patients and clinicians face using digital tools, and how to address them.", url: "https://www.jla.nihr.ac.uk/priority-setting-partnerships/digital-health-technology-trauma-and-orthopaedics#:~:text=What%20challenges%20do%20patients%20and%20clinicans%20face", label: "JLA top 10 priorities" } },
+  { w: 18, month: 6, type: "Systematic review", title: "The implementation of AI in upper extremity surgery",
+    cite: "Parry D et al. Front Artif Intell 2025", url: "https://doi.org/10.3389/frai.2025.1621757", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12515950/",
+    why: "An MSK implementation review, limited to upper limb surgery." },
+  { w: 19, month: 6, type: "Framework", title: "The Clinical Practice Integration of AI (CPI-AI) framework",
+    cite: "Farrow L et al. Bone Joint Res 2024", url: "https://doi.org/10.1302/2046-3758.139.BJR-2024-0135.R1", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11407877/",
+    why: "An orthopaedic framework for bringing AI into practice, background for our protocol." },
+  { w: 20, month: 7, type: "Systematic review", title: "AI in rheumatology practice, from implementation concerns to imaging and clinical application",
+    cite: "Barile R et al. Int J Rheum Dis 2026", url: "https://doi.org/10.1111/1756-185x.70816", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC13436147/",
+    why: "MSK beyond orthopaedics, rheumatology, but mainly about accuracy." },
+  { w: 21, month: 7, type: "Narrative review", title: "AI in the care of systemic lupus erythematosus, capabilities and translational barriers",
+    cite: "Strizzi CT et al. Lupus 2026", url: "https://doi.org/10.1177/09612033261454511",
+    why: "One rheumatic disease, and the barriers to translation." },
+  { w: 22, month: 7, type: "Review", title: "Challenges and opportunities of AI implementation within sports science and sports medicine teams",
+    cite: "Naughton M et al. Front Sports Act Living 2024", url: "https://doi.org/10.3389/fspor.2024.1332427", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11144926/",
+    why: "Barriers seen from inside MSK teams, in sports medicine." },
+  { w: 23, month: 8, type: "Systematic review", title: "AI in physical rehabilitation",
+    cite: "Sumner J et al. Artif Intell Med 2023", url: "https://doi.org/10.1016/j.artmed.2023.102693",
+    why: "AI in physiotherapy and rehabilitation, still mostly technical." },
+  { w: 24, month: 8, type: "Scoping review protocol", title: "AI adoption by allied health professionals",
+    cite: "Raghunathan K et al. BMJ Open 2025", url: "https://doi.org/10.1136/bmjopen-2024-098290", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11927405/",
+    why: "A protocol organised by profession, a method template for us." },
+  { w: 25, month: 9, type: "Primary study", title: "First deployment of AI recommendations in orthopaedic surgery",
+    cite: "Al Zoubi F et al. Front Artif Intell 2024", url: "https://doi.org/10.3389/frai.2024.1342234", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10867959/",
     why: "A deployed MSK tool beyond imaging. Theatre efficiency for 228 arthroplasties rose from 39% to 93%. Does it count as clinical care?" },
-  { w: 12, month: 3, type: "Primary study", title: "Real-world implementation of AI and machine learning for managing surgical spine patients at two academic health systems",
-    cite: "Habboub G et al. Int J Spine Surg 2023;17", url: "https://doi.org/10.14444/8506", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10318912/",
-    why: "Closes the term with two health systems describing what it took to use AI with real spine patients." },
+  { w: 26, month: 9, type: "Primary study", title: "Real-world implementation of AI and machine learning for surgical spine patients at two academic health systems",
+    cite: "Habboub G et al. Int J Spine Surg 2023", url: "https://doi.org/10.14444/8506", alt: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10318912/",
+    why: "Closes the series with two health systems describing what it took to use AI with real spine patients." },
 ];
+
+const UNITS = [[1, "Adoption"], [2, "Barriers across healthcare"], [3, "Frameworks and organisations"], [4, "One specialty or one setting"], [5, "Only tools used in practice"], [6, "MSK reviews closest to ours"], [7, "MSK beyond orthopaedics"], [8, "Rehabilitation and allied health"], [9, "MSK tools already used with patients"]];
 
 const STATIC_QS = {
   1: [
@@ -304,16 +315,16 @@ const FOCUS = {
     blocks: [
       ["AI era, 2015–2024", [
         [44.1, 2024, "Barriers to and facilitators of AI adoption in health care, scoping review", 39207831, "Newest highly cited review, adds facilitators, finds trust central", "W1"],
-        [48.8, 2023, "Barriers to the implementation of AI in healthcare, systematic review", 37927664, "Highest RCR in this block, six barrier themes, barriers only, searched 2021", ""],
+        [48.8, 2023, "Barriers to the implementation of AI in healthcare, systematic review", 37927664, "Highest RCR in this block, six barrier themes, barriers only, searched 2021", "W5"],
         [17.1, 2023, "Stakeholder perspectives of clinical AI implementation, qualitative review", 36626192, "What clinicians and patients say in their own words", "W4"],
-        [14.5, 2022, "Implementation frameworks for AI translation into practice, scoping review", 35084349, "From what blocks adoption to how to plan it", "W5"],
+        [14.5, 2022, "Implementation frameworks for AI translation into practice, scoping review", 35084349, "From what blocks adoption to how to plan it", "W8"],
         [13.6, 2022, "Perceptions and needs of AI in health care to increase adoption, scoping review", 35029538, "User perceptions and needs", ""],
-        [9.9, 2022, "Theory-based scoping review of barriers and facilitators", 36498432, "Maps barriers onto implementation theory", ""],
+        [9.9, 2022, "Theory-based scoping review of barriers and facilitators", 36498432, "Maps barriers onto implementation theory", "W7"],
       ]],
       ["2025–2026, ranked by citations per month", [
         ["3.2/mo", 2025, "Large language models in real-world clinical workflows, systematic review", 41098649, "Adoption in the language-model era", ""],
         ["2.1/mo", 2025, "Clinical implementation of AI scribes, systematic review", 40306686, "A fast-growing deployed use", ""],
-        ["1.8/mo", 2025, "Barriers and facilitators of clinician acceptance, scoping review", 40233955, "Clinician acceptance", ""],
+        ["1.8/mo", 2025, "Barriers and facilitators of clinician acceptance, scoping review", 40233955, "Clinician acceptance", "W6"],
         ["1.8/mo", 2025, "Patient perspectives on AI in healthcare, global scoping review", 40494217, "The patient side", ""],
       ]],
       ["Before 2015, clinical decision support", [
@@ -389,12 +400,12 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 function home() {
   const months = [
     [1, "Adoption", "What blocks AI from being used, and what helps"],
-    [2, "Lessons for our scoping review", "What existing reviews of AI implementation can teach us"],
+    [2, "Lessons from other specialties", "What existing reviews of AI implementation can teach our review"],
     [3, "AI in real-world MSK care", "MSK reviews and tools already used with patients"],
   ];
   return `
   <section>
-    <span class="eyebrow">Weekly AI discussion · three months, twelve sessions</span>
+    <span class="eyebrow">Weekly AI discussion · 26 sessions</span>
     <h1>AI adoption in healthcare</h1>
     <p class="lede">This is a weekly AI discussion, run as a journal club. AI tools are being built faster than hospitals can adopt them. This journal club asks why, and what that means for musculoskeletal care.</p>
   </section>
@@ -420,7 +431,7 @@ function home() {
     <h2>Programme</h2>
     <p class="note">Dates to be confirmed.</p>
     <div class="timeline">
-      ${[1, 2, 3].map(m => `<div class="eyebrow monthhead">Month ${m}</div>` + WEEKS.filter(x => x.month === m).map(x => `
+      ${UNITS.map(([m, un]) => `<div class="eyebrow monthhead">Unit ${m} · ${un}</div>` + WEEKS.filter(x => x.month === m).map(x => `
         <a href="#w${x.w}"><span class="wk">W${x.w}</span><span class="ttl">${esc(x.title)}<br><span class="ty">${esc(x.type)} · ${esc(x.cite)}</span></span>${hasQs(x.w) ? '<span class="chip ready">Questions up</span>' : '<span class="chip">Coming</span>'}</a>`).join("")).join("")}
     </div>
   </section>`;
@@ -485,7 +496,7 @@ function week(w) {
   const hero = figs[0];
   const full = x.alt || x.url;
   const box = `<div class="box">
-      <span class="kicker">Week ${w} · Month ${x.month} · ${esc(x.type)}</span>
+      <span class="kicker">Week ${w} · Unit ${x.month} · ${esc(x.type)}</span>
       <h1>${esc(x.title)}</h1>
       <span class="kicker">${esc(x.cite)}</span>
       <hr>

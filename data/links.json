@@ -24,42 +24,90 @@
     "review": "https://iressa8655.github.io/weekly-ai-discussion/assets/slides/w4-scoping-review-progress-2026-11-18.pptx"
   },
   "w5": {
-    "notes": "https://docs.google.com/document/d/1XD6_MTrldgT6TCCR0IeraOGYa-qTGksf-H7uRl_0A_E/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w6": {
-    "notes": "https://docs.google.com/document/d/1bPlf3GW9Q_X2e4sIawknLL1G5h-DxX43E9l_IbbmefE/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w7": {
-    "notes": "https://docs.google.com/document/d/16oiYwMmzhCRDaZzFKpUsS2hb6dCb_aEAiGX_8gyrPd8/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w8": {
-    "notes": "https://docs.google.com/document/d/1NEKzhX1e6GgJ0AY1ZJNe_AsZqHI-nmd8zfBioBmyjgE/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w9": {
-    "notes": "https://docs.google.com/document/d/1OOe16obQ9aCaxQwv_oQiujCbgmPdgkaLByrgU2wQUmc/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w10": {
-    "notes": "https://docs.google.com/document/d/1BYm4zMF72kBcCQ8tDGqWD-5RHFMcusfLnYr4Oke55bo/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w11": {
-    "notes": "https://docs.google.com/document/d/1a4WqGzjtIyYgOmmz-Ftcapp-TFy0q2XmJ12iJEyS2oI/edit",
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   },
   "w12": {
-    "notes": "https://docs.google.com/document/d/1htrcgKFjFjBtPlYQiOTs6ijpA7RY2h3vuJEhStJXrfo/edit",
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w13": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w14": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w15": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w16": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w17": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w18": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w19": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w20": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w21": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w22": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w23": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w24": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w25": {
+    "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
+    "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
+  },
+  "w26": {
     "pre": "https://docs.google.com/forms/d/e/1FAIpQLSfS_0nDfFko1G03_0XmjMY7WwQG9w_ckD3_e3VGafe4p-JrUg/viewform",
     "post": "https://docs.google.com/forms/d/e/1FAIpQLSfLA2jNr6aUfJjH3E522VIkebNj1J8yg-FfFC4On3JfnLdF1g/viewform"
   }
