@@ -399,9 +399,9 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;",
 
 function home() {
   const months = [
-    [1, "Adoption", "What blocks AI from being used, and what helps"],
-    [2, "Lessons from other specialties", "What existing reviews of AI implementation can teach our review"],
-    [3, "AI in real-world MSK care", "MSK reviews and tools already used with patients"],
+    ["Month 1 · W1–W4", "Adoption", "What blocks AI from being used, and what helps"],
+    ["Months 2–5 · W5–W16", "Lessons from other specialties", "What existing reviews of AI implementation can teach our review"],
+    ["Months 6–9 · W17–W26", "AI in real-world MSK care", "MSK reviews and tools already used with patients"],
   ];
   return `
   <section>
@@ -412,7 +412,7 @@ function home() {
   <section>
     <h2>Three focuses</h2>
     <div class="focus-grid">
-      ${months.map(([m, t, d], i) => `<a class="focus" href="#${["adoption", "models", "msk"][i]}"><span class="month">Month ${m}</span><h3>${["①", "②", "③"][i]} ${t}</h3><p>${d}</p></a>`).join("")}
+      ${months.map(([m, t, d], i) => `<a class="focus" href="#${["adoption", "models", "msk"][i]}"><span class="month">${m}</span><h3>${["①", "②", "③"][i]} ${t}</h3><p>${d}</p></a>`).join("")}
     </div>
     <p>We start with adoption so everyone shares the same vocabulary of barriers and facilitators. Every later paper is then read through that lens. Each month mixes reviews, for the big picture, with at least one primary study, to check a review against real evidence.</p>
   </section>
